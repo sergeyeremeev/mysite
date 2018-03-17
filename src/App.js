@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Header from './header/header';
-import WorkExperience from './work-experience/WorkExperience';
+import WorkExperience from './work-experience/work-experience';
 
 import { injectGlobal } from 'styled-components';
 

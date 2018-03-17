@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-
 import JobPreviewSingle from './job-preview-single';
 
 const JobList = styled.div`
@@ -16,7 +15,10 @@ class JobListContainer extends Component {
         return this.props.jobs.map(job => {
 
             return (
-                <JobPreviewSingle key={job.shortName} job={job} />
+                <JobPreviewSingle
+                    key={job.shortName}
+                    job={job}
+                />
             )
         });
     }

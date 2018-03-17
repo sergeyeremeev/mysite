@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-import JobList from './job-list';
+import JobList from './job-list/job-list';
+import ActiveJob from './active-job/active-job';
 
 const WorkExperienceSection = styled.div`
   display: flex;
@@ -16,6 +16,7 @@ class WorkExperience extends Component {
         return (
             <WorkExperienceSection>
                 <JobList />
+                <ActiveJob />
             </WorkExperienceSection>
         );
     }
