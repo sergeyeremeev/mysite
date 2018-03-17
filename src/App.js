@@ -11,6 +11,7 @@ injectGlobal`
 
   body {
     font-family: 'Open Sans', sans-serif;
+    background: #f7f7f7;
   }
   
   a {

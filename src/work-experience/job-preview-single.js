@@ -9,9 +9,10 @@ const JobPreview = styled.div`
   margin-bottom: 20px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 4px 4px 24px rgba(10, 10, 10, 0.15);
+  box-shadow: ${props => props.hovered ? '4px 4px 24px rgba(10, 10, 10, 0.45)' : '4px 4px 24px rgba(10, 10, 10, 0.15)'};
   color: #fff;
-  text-shadow: rgba(0, 0, 0, 0.5) 0 2px 2px;
+  text-shadow: rgba(255, 255, 255, 0.4) 0 2px 2px;
+  transition: box-shadow 0.3s ease;
   
   &::before {
     content: '';
@@ -36,6 +37,8 @@ const JobPreviewImage = styled.div`
   background-position: center 80%;
   background-size: auto 40%;
   background-image: ${props => props.imgUrl ? `url(${props.imgUrl})` : 'none'};
+  transform: ${props => props.hovered ? 'scale(1.2)' : 'none'};
+  transition: transform 0.3s ease;
   
   &::after {
     content: '';
@@ -115,26 +118,32 @@ class JobPreviewSingle extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            hovered: false,
+            selected: false
+        };
+
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
     }
 
     onMouseEnter() {
-
+        this.setState({hovered: true});
     }
 
     onMouseLeave() {
-        
+        this.setState({hovered: false});
     }
 
     render() {
         return (
-            <JobPreview key={this.props.job.shortName}>
-                <JobPreviewImage imgUrl={this.props.job.image} />
-                <JobPreviewContent
-                    onMouseEnter={this.onMouseEnter}
-                    onMouseLeave={this.onMouseLeave}
-                >
+            <JobPreview
+                onMouseEnter={this.onMouseEnter}
+                onMouseLeave={this.onMouseLeave}
+                hovered={this.state.hovered}
+            >
+                <JobPreviewImage imgUrl={this.props.job.image} hovered={this.state.hovered} />
+                <JobPreviewContent>
                     <JobPreviewContentTop>
                         <JobPreviewTitle>{this.props.job.title}</JobPreviewTitle>
                         @
