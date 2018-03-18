@@ -26,7 +26,11 @@ class WorkExperience extends Component {
     }
 
     handleJobSelect(index) {
-        this.setState({activeIndex: index, resetJobAnimation: true});
+        this.setState({activeIndex: index});
+
+        if (this.state.activeIndex !== index) {
+            this.setState({resetJobAnimation: true})
+        }
     }
 
     endJobResetAnimation() {
