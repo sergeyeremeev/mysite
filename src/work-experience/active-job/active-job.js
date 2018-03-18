@@ -16,13 +16,16 @@ const handWiggle = keyframes`
 
 const JobDetailsContainer = styled.div`
   width: 60%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 22px;
 `;
 
 const JobDetails = styled.div`
   display: flex;
   width: ${props => props.selected ? '100%' : '60%'};
   flex-direction: column;
-  padding: 0 40px;
+  padding: 0 40px 20px;
   justify-content: ${props => props.selected ? 'flex-start' : 'center'};
   
   h2 {
@@ -46,6 +49,17 @@ const JobDetails = styled.div`
   h4 {
     margin-bottom: 0;
   }
+`;
+
+const JobResetter = styled.div`
+  position: absolute;
+  left: 40px;
+  bottom: 0;
+  height: 100%;
+  width: calc(100% - 40px);
+  border-top: 2px solid #0070ff;
+  transform: translateY(calc(100% - 2px));
+  background: #f7f7f7;
 `;
 
 class ActiveJob extends Component {
@@ -72,12 +86,13 @@ class ActiveJob extends Component {
                         <p>{activeJob.roleSummary}</p>
                         <h4>Duties:</h4>
                         <ul>
-                            {activeJob.duties.map(duty =>
-                                <li>{duty}</li>
+                            {activeJob.duties.map((duty, i) =>
+                                <li key={i}>{duty}</li>
                             )}
                         </ul>
                     </JobDetails>
                 </Scrollbars>
+                <JobResetter />
             </JobDetailsContainer>
         );
     }
