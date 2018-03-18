@@ -3,13 +3,23 @@ import styled from 'styled-components';
 import JobList from './job-list/job-list';
 import ActiveJob from './active-job/active-job';
 
-const WorkExperienceSection = styled.div`
+const WorkExperienceSection = styled.section`
+  display: block;
+  max-width: 1160px;
+  margin: 40px auto 0;
+  
+  h1 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 12px;
+    margin: 20px 0 50px;
+    font-size: 32px;
+  }
+`;
+
+const WorkExperienceContainer = styled.div`
   display: flex;
   flex: 1 0 auto;
-  width: 100%;
-  max-width: 1160px;
   height: 660px;
-  margin: 40px auto 0;
 `;
 
 class WorkExperience extends Component {
@@ -29,7 +39,11 @@ class WorkExperience extends Component {
         this.setState({activeIndex: index});
 
         if (this.state.activeIndex !== index) {
-            this.setState({resetJobAnimation: true})
+            this.setState({resetJobAnimation: true});
+
+            setTimeout(() => {
+                this.setState({resetJobAnimation: false});
+            }, 600);
         }
     }
 
@@ -40,14 +54,17 @@ class WorkExperience extends Component {
     render() {
         return (
             <WorkExperienceSection>
-                <JobList
-                    activeIndex={this.state.activeIndex}
-                    onJobSelect={this.handleJobSelect}
-                />
-                <ActiveJob
-                    animateResetter={this.state.resetJobAnimation}
-                    onJobUpdate={this.endJobResetAnimation}
-                />
+                <h1>Work Experience</h1>
+                <WorkExperienceContainer>
+                    <JobList
+                        activeIndex={this.state.activeIndex}
+                        onJobSelect={this.handleJobSelect}
+                    />
+                    <ActiveJob
+                        animateResetter={this.state.resetJobAnimation}
+                        onJobUpdate={this.endJobResetAnimation}
+                    />
+                </WorkExperienceContainer>
             </WorkExperienceSection>
         );
     }
