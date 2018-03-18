@@ -11,23 +11,13 @@ const JobList = styled.div`
 `;
 
 class JobListContainer extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {activeIndex: null};
-    }
-
-    handleJobSelect(index) {
-        this.setState({activeIndex: index});
-    }
-
     renderJobList() {
         return this.props.jobs.map((job, index) => {
 
             return (
                 <JobPreviewSingle
-                    active={index === this.state.activeIndex}
-                    onJobSelect={this.handleJobSelect.bind(this, index)}
+                    active={index === this.props.activeIndex}
+                    onJobSelect={this.props.onJobSelect.bind(null, index)}
                     key={job.shortName}
                     job={job}
                 />

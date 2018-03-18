@@ -58,11 +58,18 @@ const JobResetter = styled.div`
   height: 100%;
   width: calc(100% - 40px);
   border-top: 2px solid #0070ff;
-  transform: translateY(calc(100% - 2px));
+  transform: ${props => props.animating ? 'translateY(0)' : 'translateY(calc(100% - 2px))'};
   background: #f7f7f7;
+  transition: 0.5s transform ease-in;
 `;
 
 class ActiveJob extends Component {
+    componentDidUpdate() {
+        setTimeout(() => {
+            this.props.onJobUpdate();
+        }, 600);
+    }
+
     render() {
         const activeJob = this.props.activeJob;
 
@@ -92,7 +99,7 @@ class ActiveJob extends Component {
                         </ul>
                     </JobDetails>
                 </Scrollbars>
-                <JobResetter />
+                <JobResetter animating={this.props.animateResetter} />
             </JobDetailsContainer>
         );
     }

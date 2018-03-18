@@ -13,11 +13,37 @@ const WorkExperienceSection = styled.div`
 `;
 
 class WorkExperience extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeIndex: null,
+            resetJobAnimation: false
+        };
+
+        this.handleJobSelect = this.handleJobSelect.bind(this);
+        this.endJobResetAnimation = this.endJobResetAnimation.bind(this);
+    }
+
+    handleJobSelect(index) {
+        this.setState({activeIndex: index, resetJobAnimation: true});
+    }
+
+    endJobResetAnimation() {
+        this.setState({resetJobAnimation: false});
+    }
+
     render() {
         return (
             <WorkExperienceSection>
-                <JobList />
-                <ActiveJob />
+                <JobList
+                    activeIndex={this.state.activeIndex}
+                    onJobSelect={this.handleJobSelect}
+                />
+                <ActiveJob
+                    animateResetter={this.state.resetJobAnimation}
+                    onJobUpdate={this.endJobResetAnimation}
+                />
             </WorkExperienceSection>
         );
     }

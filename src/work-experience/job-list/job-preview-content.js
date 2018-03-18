@@ -64,7 +64,9 @@ class JobPreviewContent extends Component {
 
     handleClick() {
         this.props.onJobSelect();
-        this.props.selectJob(this.props.job);
+        setTimeout(() => {
+            this.props.selectJob(this.props.job);
+        }, 600);
     }
 
     render() {
