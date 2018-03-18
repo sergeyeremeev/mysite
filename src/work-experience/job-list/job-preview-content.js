@@ -12,6 +12,7 @@ const JobPreviewText = styled.div`
   flex-direction: column;
   padding: 20px;
   cursor: pointer;
+  border: ${props => props.active ? '4px solid #fff' : 'none'};
 `;
 
 const JobPreviewContentTop = styled.div`
@@ -24,15 +25,15 @@ const JobPreviewContentTop = styled.div`
   justify-content: flex-start;
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.5) 0 2px 2px;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 18px;
   
   h3 {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 `;
 
@@ -56,9 +57,19 @@ const JobPreviewContentBottom = styled.div`
 `;
 
 class JobPreviewContent extends Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.props.onJobSelect();
+        this.props.selectJob(this.props.job);
+    }
+
     render() {
         return (
-            <JobPreviewText onClick={() => this.props.selectJob(this.props.job)}>
+            <JobPreviewText active={this.props.active} onClick={this.handleClick}>
                 <JobPreviewContentTop>
                     <h3>{this.props.job.title}</h3>
                     @

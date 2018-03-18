@@ -9,6 +9,14 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700');
 
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
   body {
     font-family: 'Open Sans', sans-serif;
     background: #f7f7f7;

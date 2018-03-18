@@ -7,20 +7,18 @@ const JobPreview = styled.div`
   display: flex;
   flex: 1 0 auto;
   width: 100%;
+  height: 320px;
   margin-bottom: 20px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: ${props => props.hovered ? '4px 4px 24px rgba(10, 10, 10, 0.45)' : '4px 4px 24px rgba(10, 10, 10, 0.15)'};
+  box-shadow: ${props => props.active ? '4px 4px 24px rgba(10, 10, 10, 0.55)' : 
+    props.hovered ? '4px 4px 24px rgba(10, 10, 10, 0.45)' : '4px 4px 24px rgba(10, 10, 10, 0.15)'};
   color: #fff;
   text-shadow: rgba(255, 255, 255, 0.4) 0 2px 2px;
   transition: box-shadow 0.3s ease;
   
-  &::before {
-    content: '';
-    padding-top: 66.666666%;
-    display: table;
-    width: 1px;
-    margin-left: -1px;
+  &:last-child {
+   margin-bottom: 0;
   }
 `;
 
@@ -72,8 +70,7 @@ class JobPreviewSingle extends Component {
         super(props);
 
         this.state = {
-            hovered: false,
-            selected: false
+            hovered: false
         };
 
         this.onMouseEnter = this.onMouseEnter.bind(this);
@@ -94,9 +91,14 @@ class JobPreviewSingle extends Component {
                 onMouseEnter={this.onMouseEnter}
                 onMouseLeave={this.onMouseLeave}
                 hovered={this.state.hovered}
+                active={this.props.active}
             >
                 <JobPreviewImage imgUrl={this.props.job.image} hovered={this.state.hovered} />
-                <JobPreviewContent job={this.props.job} />
+                <JobPreviewContent
+                    active={this.props.active}
+                    job={this.props.job}
+                    onJobSelect={this.props.onJobSelect}
+                />
                 <JobPreviewCTA>Learn more</JobPreviewCTA>
             </JobPreview>
         );

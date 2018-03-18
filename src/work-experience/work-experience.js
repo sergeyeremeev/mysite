@@ -8,7 +8,8 @@ const WorkExperienceSection = styled.div`
   flex: 1 0 auto;
   width: 100%;
   max-width: 1160px;
-  margin: 0 auto;
+  height: 660px;
+  margin: 40px auto 0;
 `;
 
 class WorkExperience extends Component {
