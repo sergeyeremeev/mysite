@@ -15,7 +15,10 @@ const ProjectOverlay = styled.div`
   height: 100vh;
   background: rgba(0, 0, 0, 0.9);
   z-index: 99;
-  display: ${props => props.overlayActive ? 'flex' : 'none'};
+  display: flex;
+  visibility: ${props => props.overlayActive ? 'visible' : 'hidden'};
+  opacity: ${props => props.overlayActive ? '1' : '0'};
+  transition: visibility 0s, opacity 0.3s linear;
   align-items: center;
   justify-content: center;
 `;
@@ -45,7 +48,9 @@ const ProjectCloseBtn = styled.div`
   right: 25px;
   color: ${themeColors.blue};
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
 `;
 
 const ScrolledTextContainer = styled.div`
