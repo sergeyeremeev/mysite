@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import JobPreviewContent from './job-preview-content';
+import themeColors from '../../common/theme-colors';
 
 const JobPreview = styled.div`
   position: relative;
@@ -14,7 +15,6 @@ const JobPreview = styled.div`
   box-shadow: ${props => props.active ? '4px 4px 24px rgba(10, 10, 10, 0.55)' : 
     props.hovered ? '4px 4px 24px rgba(10, 10, 10, 0.45)' : '4px 4px 24px rgba(10, 10, 10, 0.15)'};
   color: #fff;
-  text-shadow: rgba(255, 255, 255, 0.4) 0 2px 2px;
   transition: box-shadow 0.3s ease;
   
   &:last-child {
@@ -49,7 +49,8 @@ const JobPreviewImage = styled.div`
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: ${themeColors.brown};
+    opacity: 0.85;
   }
 `;
 
@@ -61,7 +62,7 @@ const JobPreviewCTA = styled.span`
   top: 66.666666%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 2px solid #fff;
+  border: 2px solid ${themeColors.white};
   padding: 6px 24px;
 `;
 

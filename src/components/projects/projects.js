@@ -16,14 +16,45 @@ const ProjectsContainer = styled.div`
 `;
 
 class Portfolio extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            overlayActive: false,
+            activeIndex: null
+        };
+
+        this.handleProjectSelect = this.handleProjectSelect.bind(this);
+        this.handleOverlayClose = this.handleOverlayClose.bind(this);
+    }
+
+    handleProjectSelect(index) {
+        document.body.style.overflow = 'hidden';
+
+        this.setState({
+            overlayActive: true,
+            activeIndex: index
+        });
+    }
+
+    handleOverlayClose() {
+        document.body.style.overflow = 'auto';
+
+        this.setState({overlayActive: false});
+    }
 
     render() {
         return (
             <ProjectsSection>
                 <SectionTitle>Portfolio</SectionTitle>
                 <ProjectsContainer>
-                    <ProjectList />
-                    <ProjectActive />
+                    <ProjectList
+                        onProjectSelect={this.handleProjectSelect}
+                    />
+                    <ProjectActive
+                        overlayActive={this.state.overlayActive}
+                        onOverlayClose={this.handleOverlayClose}
+                    />
                 </ProjectsContainer>
             </ProjectsSection>
         );

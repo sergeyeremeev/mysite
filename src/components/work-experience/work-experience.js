@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import JobList from './job-list/job-list';
-import ActiveJob from './active-job/active-job';
+import ActiveJob from './active-job/job-active';
 import SectionTitle from '../common/section-title';
 
 const WorkExperienceSection = styled.section`

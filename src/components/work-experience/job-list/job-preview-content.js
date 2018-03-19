@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {selectJob} from "../../../actions";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectJob } from '../../../actions';
+import themeColors from '../../common/theme-colors';
 
 const JobPreviewText = styled.div`
   position: relative;
@@ -23,7 +24,7 @@ const JobPreviewContentTop = styled.div`
   text-align: center;
   flex-direction: column;
   justify-content: flex-start;
-  color: #fff;
+  color: ${themeColors.white};
   text-shadow: rgba(0, 0, 0, 0.5) 0 2px 2px;
   font-size: 22px;
   line-height: 18px;
@@ -87,7 +88,7 @@ class JobPreviewContent extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({selectJob: selectJob}, dispatch);
+    return bindActionCreators({selectJob}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(JobPreviewContent);

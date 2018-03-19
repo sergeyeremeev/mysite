@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
+import themeColors from '../../common/theme-colors';
 
 const handWiggle = keyframes`
     0% {transform: rotate(0deg);}
@@ -27,11 +28,12 @@ const JobDetails = styled.div`
   flex-direction: column;
   padding: 0 40px 20px;
   justify-content: ${props => props.selected ? 'flex-start' : 'center'};
-  color: #333;
+  color: ${themeColors.brown};
   
   h2 {
     text-align: center;
     margin-top: 0;
+    color: ${themeColors.plum};
   }
   
   img {
@@ -49,6 +51,7 @@ const JobDetails = styled.div`
   
   h4 {
     margin-bottom: 0;
+    color: ${themeColors.blue};
   }
 `;
 
@@ -58,9 +61,9 @@ const JobResetter = styled.div`
   bottom: 0;
   height: 100%;
   width: calc(100% - 40px);
-  border-top: 2px solid #333;
+  border-top: 2px solid ${themeColors.blue};
   transform: ${props => props.animating ? 'translateY(0)' : 'translateY(calc(100% - 2px))'};
-  background: #f7f7f7;
+  background: ${themeColors.beige};
   transition: 0.5s transform ease-in;
 `;
 
@@ -100,10 +103,8 @@ class ActiveJob extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        activeJob: state.activeJob
-    };
+function mapStateToProps({activeJob}) {
+    return {activeJob};
 }
 
 export default connect(mapStateToProps)(ActiveJob);

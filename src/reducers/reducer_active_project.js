@@ -1,8 +1,8 @@
-import { JOB_SELECTED } from '../actions';
+import { PROJECT_SELECTED } from '../actions';
 
 export default (state = null, action) => {
     switch(action.type) {
-        case JOB_SELECTED:
+        case PROJECT_SELECTED:
             return action.payload;
         default:
             return state;

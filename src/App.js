@@ -20,7 +20,7 @@ injectGlobal`
 
   body {
     font-family: 'Open Sans', sans-serif;
-    background: #f7f7f7;
+    background: #F5F3EE;
   }
   
   a {

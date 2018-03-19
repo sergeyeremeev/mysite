@@ -2,11 +2,13 @@ import { combineReducers } from 'redux';
 import JobsReducer from './reducer_jobs';
 import ActiveJobReducer from './reducer_active_job';
 import ProjectsReducer from './reducer_projects';
+import ActiveProjectReducer from './reducer_active_project';
 
 const rootReducer = combineReducers({
     jobs: JobsReducer,
     activeJob: ActiveJobReducer,
-    projects: ProjectsReducer
+    projects: ProjectsReducer,
+    activeProject: ActiveProjectReducer
 });
 
 export default rootReducer;

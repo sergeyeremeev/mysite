@@ -34,10 +34,8 @@ class JobListContainer extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        jobs: state.jobs
-    };
+function mapStateToProps({jobs}) {
+    return {jobs};
 }
 
 export default connect(mapStateToProps)(JobListContainer);
