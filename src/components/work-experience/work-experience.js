@@ -2,24 +2,19 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import JobList from './job-list/job-list';
 import ActiveJob from './active-job/active-job';
+import SectionTitle from '../common/section-title';
 
 const WorkExperienceSection = styled.section`
   display: block;
   max-width: 1160px;
-  margin: 40px auto 0;
-  
-  h1 {
-    border-bottom: 2px solid #333;
-    padding-bottom: 12px;
-    margin: 20px 0 50px;
-    font-size: 32px;
-  }
+  margin: 40px auto 100px;
 `;
 
 const WorkExperienceContainer = styled.div`
   display: flex;
   flex: 1 0 auto;
   height: 660px;
+  padding: 0 20px;
 `;
 
 class WorkExperience extends Component {
@@ -54,7 +49,7 @@ class WorkExperience extends Component {
     render() {
         return (
             <WorkExperienceSection>
-                <h1>Work Experience</h1>
+                <SectionTitle>Work Experience</SectionTitle>
                 <WorkExperienceContainer>
                     <JobList
                         activeIndex={this.state.activeIndex}

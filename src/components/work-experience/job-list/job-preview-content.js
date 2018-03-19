@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {selectJob} from "../../actions";
+import {selectJob} from "../../../actions";
 
 const JobPreviewText = styled.div`
   position: relative;

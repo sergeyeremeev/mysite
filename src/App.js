@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Header from './header/header';
-import WorkExperience from './work-experience/work-experience';
+import WorkExperience from './components/work-experience/work-experience';
+import Portfolio from './components/projects/projects';
 
 import { injectGlobal } from 'styled-components';
 
@@ -42,6 +43,7 @@ class App extends Component {
         <div className="wrapper">
             <Header />
             <WorkExperience />
+            <Portfolio />
         </div>
     );
   }
