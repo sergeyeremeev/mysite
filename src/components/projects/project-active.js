@@ -18,7 +18,9 @@ const ProjectOverlay = styled.div`
   display: flex;
   visibility: ${props => props.overlayActive ? 'visible' : 'hidden'};
   opacity: ${props => props.overlayActive ? '1' : '0'};
-  transition: visibility 0s, opacity 0.3s linear;
+  transition: ${props => props.overlayActive ? 
+    'visibility 0s, opacity 0.3s linear' : 
+    'visibility 0s 0.3s, opacity 0.3s linear'};
   align-items: center;
   justify-content: center;
 `;
