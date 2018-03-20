@@ -57,9 +57,9 @@ const ProjectTile = styled.div`
 `;
 
 class ProjectList extends Component {
-    handleClick(index, project) {
+    handleClick(project) {
         this.props.selectProject(project);
-        this.props.onProjectSelect(index);
+        this.props.onProjectSelect();
     }
 
     render() {
@@ -67,7 +67,7 @@ class ProjectList extends Component {
             return (
                 <ProjectTile
                     key={project.shortName}
-                    onClick={this.handleClick.bind(this, index, project)}
+                    onClick={this.handleClick.bind(this, project)}
                 >
                     <img src={project.image} alt=""/>
                     <h3>{project.name}</h3>
@@ -82,7 +82,7 @@ function mapStateToProps({projects}) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({selectProject: selectProject}, dispatch);
+    return bindActionCreators({selectProject}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);

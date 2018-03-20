@@ -18,22 +18,15 @@ class Portfolio extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            overlayActive: false,
-            activeIndex: null
-        };
+        this.state = {overlayActive: false};
 
         this.handleProjectSelect = this.handleProjectSelect.bind(this);
         this.handleOverlayClose = this.handleOverlayClose.bind(this);
     }
 
-    handleProjectSelect(index) {
+    handleProjectSelect() {
         document.body.style.overflow = 'hidden';
-
-        this.setState({
-            overlayActive: true,
-            activeIndex: index
-        });
+        this.setState({overlayActive: true});
     }
 
     handleOverlayClose() {

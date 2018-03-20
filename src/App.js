@@ -43,11 +43,11 @@ injectGlobal`
 class App extends Component {
   render() {
     return (
-        <div className="wrapper">
+        <div>
             <Header />
             <WorkExperience />
             <Portfolio />
-            {/*<Skills />*/}
+            <Skills />
             <Message />
             <Footer />
         </div>

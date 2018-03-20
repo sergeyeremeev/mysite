@@ -23,9 +23,14 @@ const JobDetailsContainer = styled.div`
 `;
 
 const JobDetails = styled.div`
+  position: ${props => props.selected ? 'static' : 'absolute'};
+  top: 50%;
+  left: 50%;
+  transform: ${props => props.selected ? 'none' : 'translate(-50%, -50%)'};
   display: flex;
   width: ${props => props.selected ? '100%' : '60%'};
   flex-direction: column;
+  margin: 0 auto;
   padding: 0 40px 20px;
   justify-content: ${props => props.selected ? 'flex-start' : 'center'};
   color: ${themeColors.brown};
@@ -73,10 +78,13 @@ class ActiveJob extends Component {
 
         if (!activeJob) {
             return (
-                <JobDetails>
-                    <h2>Select a job on the left for more details</h2>
-                    <img src="https://www.projectquote.com/assets/img/hand-small.png" alt=""/>
-                </JobDetails>
+                <JobDetailsContainer>
+                    <JobDetails>
+                        <h2>Select a job for more details</h2>
+                        <img src="https://www.projectquote.com/assets/img/hand-small.png" alt=""/>
+                    </JobDetails>
+                    <JobResetter animating={this.props.animateResetter} />
+                </JobDetailsContainer>
             );
         }
 

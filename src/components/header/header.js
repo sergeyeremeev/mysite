@@ -26,6 +26,7 @@ const HeaderContainer = styled.header`
 const HeaderTop = styled.div`
   color: ${themeColors.beige};
   margin-bottom: 40px;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 4px 2px;
   
   h1 {
     margin: 0;
