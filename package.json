@@ -2,6 +2,7 @@
   "name": "another-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://sergeyeremeev.github.io/resume-site",
   "dependencies": {
     "history": "^4.7.2",
     "react": "^16.2.0",

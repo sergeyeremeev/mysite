@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/header/header';
 import WorkExperience from './components/work-experience/work-experience';
 import Portfolio from './components/projects/projects';
+import Skills from './components/skills/skills';
 import Message from './components/message/message';
 import Footer from './components/footer/footer';
 
@@ -46,6 +47,7 @@ class App extends Component {
             <Header />
             <WorkExperience />
             <Portfolio />
+            {/*<Skills />*/}
             <Message />
             <Footer />
         </div>

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+
 import themeColors from '../common/theme-colors';
+import headerImage from '../../assets/images/computer_screen.png';
+import CV from '../../assets/documents/CV.pdf';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -85,9 +88,9 @@ class Header extends Component {
                     <h1>Sergey Eremeev</h1>
                     <h2>Your Next Frontend Developer</h2>
                 </HeaderTop>
-                <img src="../images/computer_screen.png" alt=""/>
+                <img src={headerImage} alt=""/>
                 <HeaderBottom>
-                    <a href="../images/CV.pdf" download="Resume">Resume</a>
+                    <a href={CV} download="Resume">Resume</a>
                     <button onClick={this.handleClick}>Contact</button>
                 </HeaderBottom>
             </HeaderContainer>
