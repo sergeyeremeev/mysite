@@ -5,9 +5,8 @@ import ProjectList from './project-list';
 import ProjectActive from './project-active';
 
 const ProjectsSection = styled.section`
-  display: block;
   max-width: 1160px;
-  margin: 40px auto 0;
+  margin: 40px auto 120px;
 `;
 
 const ProjectsContainer = styled.div`
@@ -39,7 +38,6 @@ class Portfolio extends Component {
 
     handleOverlayClose() {
         document.body.style.overflow = 'auto';
-
         this.setState({overlayActive: false});
     }
 

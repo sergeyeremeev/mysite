@@ -5,9 +5,8 @@ import ActiveJob from './active-job/job-active';
 import SectionTitle from '../common/section-title';
 
 const WorkExperienceSection = styled.section`
-  display: block;
   max-width: 1160px;
-  margin: 40px auto 100px;
+  margin: 40px auto 120px;
 `;
 
 const WorkExperienceContainer = styled.div`

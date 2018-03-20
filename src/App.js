@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Header from './header/header';
+import Header from './components/header/header';
 import WorkExperience from './components/work-experience/work-experience';
 import Portfolio from './components/projects/projects';
+import Message from './components/message/message';
+import Footer from './components/footer/footer';
 
 import { injectGlobal } from 'styled-components';
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:300,400,700');
 
   html {
     box-sizing: border-box;
@@ -44,6 +46,8 @@ class App extends Component {
             <Header />
             <WorkExperience />
             <Portfolio />
+            <Message />
+            <Footer />
         </div>
     );
   }
