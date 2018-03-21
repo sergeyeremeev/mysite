@@ -3,19 +3,21 @@ import styled from 'styled-components';
 import themeColors from '../common/theme-colors';
 
 const FooterContainer = styled.footer`
-  background: ${themeColors.blue};
+  background: linear-gradient(${themeColors.blue}, #00495f);
   padding: 40px 0;
 `;
 
 const FooterContainerInner = styled.div`
-  max-width: 1160px;
+  display: flex;
+  max-width: 920px;
   margin: 0 auto;
-  overflow: hidden;
 `;
 
 const FooterSection = styled.div`
-  width: 50%;
-  float: left;
+
+  &:last-child {
+    margin-left: auto;
+  }
   
   h2 {
     color: ${themeColors.white};
@@ -34,6 +36,10 @@ const FooterSection = styled.div`
   
   li {
     margin-bottom: 14px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
   }
 `;
 

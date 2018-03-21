@@ -11,6 +11,7 @@ const MessageContainer = styled.div`
   text-align: center;
   background: ${themeColors.white};
   max-width: 920px;
+  box-shadow: rgba(0,0,0,0.15) 5px 5px 10px 0;
   margin: 0 auto;
   border: 1px solid ${themeColors.blue};
   padding: 10px;
