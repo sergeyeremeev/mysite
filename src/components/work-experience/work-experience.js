@@ -24,12 +24,9 @@ class WorkExperience extends Component {
             activeIndex: null,
             resetJobAnimation: false
         };
-
-        this.handleJobSelect = this.handleJobSelect.bind(this);
-        this.endJobResetAnimation = this.endJobResetAnimation.bind(this);
     }
 
-    handleJobSelect(index) {
+    handleJobSelect = (index) => {
         this.setState({activeIndex: index});
 
         if (this.state.activeIndex !== index) {
@@ -39,11 +36,11 @@ class WorkExperience extends Component {
                 this.setState({resetJobAnimation: false});
             }, 600);
         }
-    }
+    };
 
-    endJobResetAnimation() {
+    endJobResetAnimation = () => {
         this.setState({resetJobAnimation: false});
-    }
+    };
 
     render() {
         return (

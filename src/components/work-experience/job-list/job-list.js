@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import JobPreviewSingle from './job-preview-single';
@@ -10,29 +10,31 @@ const JobList = styled.div`
   align-self: flex-start;
 `;
 
-class JobListContainer extends Component {
-    renderJobList() {
-        return this.props.jobs.map((job, index) => {
+const JobListContainer = (props) => {
+    const handleJobSelect = (index) => {
+        props.onJobSelect(index);
+    };
+
+    const renderJobList = () => {
+        return props.jobs.map((job, index) => {
 
             return (
                 <JobPreviewSingle
-                    active={index === this.props.activeIndex}
-                    onJobSelect={this.props.onJobSelect.bind(null, index)}
+                    active={index === props.activeIndex}
+                    onJobSelect={() => handleJobSelect(index)}
                     key={job.shortName}
                     job={job}
                 />
             )
         });
-    }
+    };
 
-    render() {
-        return (
-            <JobList>
-                {this.renderJobList()}
-            </JobList>
-        );
-    }
-}
+    return (
+        <JobList>
+            {renderJobList()}
+        </JobList>
+    );
+};
 
 function mapStateToProps({jobs}) {
     return {jobs};

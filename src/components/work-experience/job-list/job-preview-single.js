@@ -73,18 +73,15 @@ class JobPreviewSingle extends Component {
         this.state = {
             hovered: false
         };
-
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onMouseLeave = this.onMouseLeave.bind(this);
     }
 
-    onMouseEnter() {
+    onMouseEnter = () => {
         this.setState({hovered: true});
-    }
+    };
 
-    onMouseLeave() {
+    onMouseLeave = () => {
         this.setState({hovered: false});
-    }
+    };
 
     render() {
         return (

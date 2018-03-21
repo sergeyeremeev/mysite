@@ -36,30 +36,26 @@ class SkillCircle extends Component {
         super(props);
 
         this.state = {hovered: false};
-
-        this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
-        this.handleClick = this.handleClick.bind(this);
     }
 
-    handleMouseEnter() {
+    handleMouseEnter = () =>  {
         this.setState({hovered: true});
-    }
+    };
 
-    handleMouseLeave() {
+    handleMouseLeave = () =>  {
         this.setState({hovered: false});
-    }
+    };
 
-    handleClick() {
+    handleClick = () => {
         this.props.onSkillSelect(this.props.skill);
         setTimeout(() => {
             this.props.selectSkill(this.props.skill);
         }, 300);
-    }
+    };
 
     getCurrentRotation(itemIndex) {
         const rotation = this.props.angle * itemIndex;
-        return `rotate(${rotation}deg) translate(250px) rotate(-${rotation}deg);`;
+        return `rotate(${rotation}deg) translate(280px) rotate(-${rotation}deg);`;
     }
 
     render() {

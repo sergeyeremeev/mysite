@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import ProjectContent from './project-active-details';
 import styled from 'styled-components';
@@ -61,53 +61,44 @@ const ScrolledTextContainer = styled.div`
   height: 100%;
 `;
 
-class ProjectActive extends Component {
-    constructor(props) {
-        super(props);
+const ProjectActive = (props) => {
+    const activeProject = props.activeProject;
 
-        this.handleOverlayClose = this.handleOverlayClose.bind(this);
-        this.handleOverlayContentsClick = this.handleOverlayContentsClick.bind(this);
-    }
+    const handleOverlayClose = () =>  {
+        props.onOverlayClose();
+    };
 
-    handleOverlayClose() {
-        this.props.onOverlayClose();
-    }
-
-    handleOverlayContentsClick(e) {
+    const handleOverlayContentsClick = (e) =>  {
         e.stopPropagation();
-    }
+    };
 
-    render() {
-        const activeProject = this.props.activeProject;
-
-        if (!activeProject) {
-            return (
-                <ProjectOverlay>
-                    <ProjectContainer>
-                        <h2>No project selected</h2>
-                    </ProjectContainer>
-                </ProjectOverlay>
-            );
-        }
-
+    if (!activeProject) {
         return (
-            <ProjectOverlay
-                overlayActive={this.props.overlayActive}
-                onClick={this.handleOverlayClose}
-            >
-                <ProjectContainer onClick={this.handleOverlayContentsClick}>
-                    <ProjectCloseBtn onClick={this.handleOverlayClose}>Close</ProjectCloseBtn>
-                    <h2>{activeProject.name}</h2>
-                    <ScrolledTextContainer>
-                        <Scrollbars>
-                            <ProjectContent project={activeProject} />
-                        </Scrollbars>
-                    </ScrolledTextContainer>
+            <ProjectOverlay>
+                <ProjectContainer>
+                    <h2>No project selected</h2>
                 </ProjectContainer>
             </ProjectOverlay>
         );
     }
-}
+
+    return (
+        <ProjectOverlay
+            overlayActive={props.overlayActive}
+            onClick={handleOverlayClose}
+        >
+            <ProjectContainer onClick={handleOverlayContentsClick}>
+                <ProjectCloseBtn onClick={handleOverlayClose}>Close</ProjectCloseBtn>
+                <h2>{activeProject.name}</h2>
+                <ScrolledTextContainer>
+                    <Scrollbars>
+                        <ProjectContent project={activeProject} />
+                    </Scrollbars>
+                </ScrolledTextContainer>
+            </ProjectContainer>
+        </ProjectOverlay>
+    );
+};
 
 function mapStateToProps({activeProject}) {
     return {activeProject};

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import themeColors from '../common/theme-colors';
 import SkillMain from './skill-main';
 import SkillCircle from './skill-circle';
 
@@ -14,21 +13,17 @@ const SkillsSection = styled.section`
 
 const SkillsContainer = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
   padding: 0 20px;
-  height: 650px;
+  height: 680px;
 `;
 
 const SkillsRotator = styled.div`
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
+  width: 560px;
+  height: 560px;
   border-radius: 50%;
 `;
 
@@ -42,7 +37,7 @@ class Skills extends Component {
         };
     }
 
-    handleSkillSelect(index) {
+    handleSkillSelect = (index) => {
         this.setState({activeIndex: index});
 
         if (this.state.activeIndex !== index) {
@@ -52,7 +47,7 @@ class Skills extends Component {
                 this.setState({mainCircleResetting: false});
             }, 300);
         }
-    }
+    };
 
     render() {
         return (
@@ -68,7 +63,7 @@ class Skills extends Component {
                                 skill={skill}
                                 itemIndex={index}
                                 angle={360 / this.props.skills.length}
-                                onSkillSelect={this.handleSkillSelect.bind(this, index)}
+                                onSkillSelect={() => this.handleSkillSelect(index)}
                                 selected={index === this.state.activeIndex}
                             />
                         )}

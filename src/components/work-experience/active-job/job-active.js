@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -72,44 +72,43 @@ const JobResetter = styled.div`
   transition: 0.5s transform ease-in;
 `;
 
-class ActiveJob extends Component {
-    render() {
-        const activeJob = this.props.activeJob;
+const ActiveJob = (props) => {
+    const activeJob = props.activeJob;
+    const animateResetter = props.animateResetter;
 
-        if (!activeJob) {
-            return (
-                <JobDetailsContainer>
-                    <JobDetails>
-                        <h2>Select a job for more details</h2>
-                        <img src="https://www.projectquote.com/assets/img/hand-small.png" alt=""/>
-                    </JobDetails>
-                    <JobResetter animating={this.props.animateResetter} />
-                </JobDetailsContainer>
-            );
-        }
-
+    if (!activeJob) {
         return (
             <JobDetailsContainer>
-                <Scrollbars>
-                    <JobDetails selected>
-                        <h2>{activeJob.title}</h2>
-                        <p>Company/Organisation: <strong>{activeJob.companyName}</strong></p>
-                        <p>Working dates: <strong>{activeJob.startDate}</strong> - <strong>{activeJob.endDate}</strong></p>
-                        <h4>Job Summary:</h4>
-                        <p>{activeJob.roleSummary}</p>
-                        <h4>Duties:</h4>
-                        <ul>
-                            {activeJob.duties.map((duty, i) =>
-                                <li key={i}>{duty}</li>
-                            )}
-                        </ul>
-                    </JobDetails>
-                </Scrollbars>
-                <JobResetter animating={this.props.animateResetter} />
+                <JobDetails>
+                    <h2>Select a job for more details</h2>
+                    <img src="https://www.projectquote.com/assets/img/hand-small.png" alt=""/>
+                </JobDetails>
+                <JobResetter animating={animateResetter} />
             </JobDetailsContainer>
         );
     }
-}
+
+    return (
+        <JobDetailsContainer>
+            <Scrollbars>
+                <JobDetails selected>
+                    <h2>{activeJob.title}</h2>
+                    <p>Company/Organisation: <strong>{activeJob.companyName}</strong></p>
+                    <p>Working dates: <strong>{activeJob.startDate}</strong> - <strong>{activeJob.endDate}</strong></p>
+                    <h4>Job Summary:</h4>
+                    <p>{activeJob.roleSummary}</p>
+                    <h4>Duties:</h4>
+                    <ul>
+                        {activeJob.duties.map((duty, i) =>
+                            <li key={i}>{duty}</li>
+                        )}
+                    </ul>
+                </JobDetails>
+            </Scrollbars>
+            <JobResetter animating={animateResetter} />
+        </JobDetailsContainer>
+    );
+};
 
 function mapStateToProps({activeJob}) {
     return {activeJob};

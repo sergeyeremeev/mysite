@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import themeColors from '../common/theme-colors';
 
 const SkillsCircleMain = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 320px;
-  height: 320px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
+  padding: 52px;
+  font-size: 13px;
+  color: ${themeColors.brown};
+  text-align: center;
   background: ${themeColors.white};
   box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 10px 0;
-  transform: ${props => props.animating ? 'rotateY(90deg)' : 'rotateY(0)'};
+  transform: ${props => props.animating ? 
+    'translate(-50%, -50%) rotateY(90deg)' : 
+    'translate(-50%, -50%) rotateY(0)'};
   transition: transform 0.3s ease;
   
   h2 {
@@ -26,25 +35,24 @@ const SkillsCircleMain = styled.div`
   }
 `;
 
-class SkillMain extends Component {
-    render() {
-        const activeSkill = this.props.activeSkill;
+const SkillMain = (props) => {
+    const activeSkill = props.activeSkill;
+    const animating = props.animating;
 
-        if (!activeSkill) {
-            return (
-                <SkillsCircleMain animating={this.props.animating}>
-                    <h2>Select a skill</h2>
-                </SkillsCircleMain>
-            );
-        }
-
+    if (!activeSkill) {
         return (
-            <SkillsCircleMain animating={this.props.animating}>
-                <p>{activeSkill.details}</p>
+            <SkillsCircleMain animating={animating}>
+                <h2>Select a skill</h2>
             </SkillsCircleMain>
         );
     }
-}
+
+    return (
+        <SkillsCircleMain animating={animating}>
+            <p>{activeSkill.details}</p>
+        </SkillsCircleMain>
+    );
+};
 
 function mapStateToProps({activeSkill}) {
     return {activeSkill};

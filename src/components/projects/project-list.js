@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectProject } from '../../actions';
@@ -56,26 +56,24 @@ const ProjectTile = styled.div`
   }
 `;
 
-class ProjectList extends Component {
-    handleClick(project) {
-        this.props.selectProject(project);
-        this.props.onProjectSelect();
-    }
+const ProjectList = (props) => {
+    const handleClick = (project) => {
+        props.selectProject(project);
+        props.onProjectSelect();
+    };
 
-    render() {
-        return this.props.projects.map((project, index) => {
-            return (
-                <ProjectTile
-                    key={project.shortName}
-                    onClick={this.handleClick.bind(this, project)}
-                >
-                    <img src={project.image} alt=""/>
-                    <h3>{project.name}</h3>
-                </ProjectTile>
-            );
-        });
-    }
-}
+    return props.projects.map((project, index) => {
+        return (
+            <ProjectTile
+                key={project.shortName}
+                onClick={() => handleClick(project)}
+            >
+                <img src={project.image} alt=""/>
+                <h3>{project.name}</h3>
+            </ProjectTile>
+        );
+    });
+};
 
 function mapStateToProps({projects}) {
     return {projects};

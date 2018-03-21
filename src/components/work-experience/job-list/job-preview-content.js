@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -57,35 +57,30 @@ const JobPreviewContentBottom = styled.div`
   }
 `;
 
-class JobPreviewContent extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
+const JobPreviewContent = (props) => {
+    const job = props.job;
 
-    handleClick() {
-        this.props.onJobSelect();
+    const handleClick = () => {
+        props.onJobSelect();
         setTimeout(() => {
-            this.props.selectJob(this.props.job);
+            props.selectJob(job);
         }, 600);
-    }
+    };
 
-    render() {
-        return (
-            <JobPreviewText active={this.props.active} onClick={this.handleClick}>
-                <JobPreviewContentTop>
-                    <h3>{this.props.job.title}</h3>
-                    @
-                    <h2>{this.props.job.companyName}</h2>
-                </JobPreviewContentTop>
-                <JobPreviewContentBottom>
-                    <span>Start: {this.props.job.startDate}</span>
-                    <span>End: {this.props.job.endDate}</span>
-                </JobPreviewContentBottom>
-            </JobPreviewText>
-        );
-    }
-}
+    return (
+        <JobPreviewText active={props.active} onClick={handleClick}>
+            <JobPreviewContentTop>
+                <h3>{job.title}</h3>
+                @
+                <h2>{job.companyName}</h2>
+            </JobPreviewContentTop>
+            <JobPreviewContentBottom>
+                <span>Start: {job.startDate}</span>
+                <span>End: {job.endDate}</span>
+            </JobPreviewContentBottom>
+        </JobPreviewText>
+    );
+};
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({selectJob}, dispatch);
