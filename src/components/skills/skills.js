@@ -20,7 +20,7 @@ const SkillsContainer = styled.div`
 const SkillsRotator = styled.div`
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 560px;
   height: 560px;

@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
+
 import themeColors from '../../common/theme-colors';
+import handIcon from '../../../assets/images/hand.png';
 
 const handWiggle = keyframes`
     0% {transform: rotate(0deg);}
@@ -81,7 +83,7 @@ const ActiveJob = (props) => {
             <JobDetailsContainer>
                 <JobDetails>
                     <h2>Select a job for more details</h2>
-                    <img src="https://www.projectquote.com/assets/img/hand-small.png" alt=""/>
+                    <img src={handIcon} alt=""/>
                 </JobDetails>
                 <JobResetter animating={animateResetter} />
             </JobDetailsContainer>

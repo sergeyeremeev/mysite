@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import themeColors from '../common/theme-colors';
 
+import atSign from '../../assets/images/at-sign.svg';
+import linkedIn from '../../assets/images/logo-linkedin-filled.svg';
+import iconMobile from '../../assets/images/mobile-phone-portrait.svg';
+import skype from '../../assets/images/skype.svg';
+
 const FooterContainer = styled.footer`
   background: linear-gradient(${themeColors.blue}, #00495f);
   padding: 40px 0;
@@ -25,6 +30,7 @@ const FooterSection = styled.div`
     font-weight: 300;
     text-transform: uppercase;
     margin: 0 0 36px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 2px 2px;
   }
   
   ul {
@@ -68,25 +74,26 @@ const Icon = styled.i`
   margin-right: 10px;
   width: 20px;
   height: 20px;
+  background-repeat: no-repeat;
 `;
 
 const EmailIcon = Icon.extend`
-  background: url(../images/at-sign.svg);
+  background: url(${atSign});
   background-size: 100% 100%;
 `;
 
 const MobileIcon = Icon.extend`
-  background: url(../images/mobile-phone-portrait.svg);
+  background: url(${iconMobile});
   background-size: 100% 100%;
 `;
 
 const SkypeIcon = Icon.extend`
-  background: url(../images/skype.svg);
+  background: url(${skype});
   background-size: 100% 100%;
 `;
 
 const LinkedInIcon = Icon.extend`
-  background: url(../images/logo-linkedin-filled.svg);
+  background: url(${linkedIn});
   background-size: 100% 100%;
 `;
 

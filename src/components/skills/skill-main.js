@@ -7,7 +7,7 @@ import themeColors from '../common/theme-colors';
 const SkillsCircleMain = styled.div`
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;

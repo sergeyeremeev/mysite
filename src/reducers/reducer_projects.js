@@ -1,8 +1,11 @@
+import vipoutletLogo from '../assets/images/vip-logo-blue.png';
+import mpactLogo from '../assets/images/mpact_logo.png';
+
 export default () => {
     return [
         {
             shortName: 'ThisWebsite',
-            name: 'This Website',
+            name: 'Your Next Developer',
             url: 'Coming soon',
             image: 'Coming soon',
             role: 'Project owner and creator',
@@ -20,7 +23,7 @@ export default () => {
             shortName: 'Hulq',
             name: 'Hulq landing page',
             url: 'https://hulq.com/',
-            image: '../images/vip-logo-blue.png',
+            image: vipoutletLogo,
             role: 'Continuous frontend developments and updates',
             type: 'One-man project',
             description: 'A landing page for a project to revolutionize the leasing process and make it much easier for people by turning the roles and making car dealers compete for customer\'s business. This landing page is dedicated to attract customers while the development of the main website is taking place.',
@@ -40,7 +43,7 @@ export default () => {
             shortName: 'Mpact',
             name: 'Mpact Digital',
             url: 'http://www.mpactdigital.com/',
-            image: '../images/mpact_logo.png',
+            image: mpactLogo,
             role: 'Continuous frontend developments and updates',
             type: 'Team project',
             description: 'A development on this website was going on for over 3 years. It has undergone massive design and structure changes, gained a lot of new features, which eventually led to signing a contract with Walmart and creating a "Walmart Associate" version of the website dedicated to providing exclusive prices for Walmart employees.',
@@ -78,8 +81,8 @@ export default () => {
         },
         {
             shortName: 'DirectLiquidation',
-            name: 'VipOutlet',
-            url: 'https://vipoutlet.com',
+            name: 'DirectLiquidation',
+            url: 'https://directliquidation.com',
             image: '../images/vip-logo-blue.png',
             role: 'Continuous frontend developments and updates',
             type: 'Team project',
@@ -98,8 +101,48 @@ export default () => {
         },
         {
             shortName: 'goTRG',
-            name: 'VipOutlet',
+            name: 'goTRG',
             url: 'https://vipoutlet.com',
+            image: '../images/vip-logo-blue.png',
+            role: 'Continuous frontend developments and updates',
+            type: 'Team project',
+            description: 'A development on this website was going on for over 3 years. It has undergone massive design and structure changes, gained a lot of new features, which eventually led to signing a contract with Walmart and creating a "Walmart Associate" version of the website dedicated to providing exclusive prices for Walmart employees.',
+            tasks_features: [
+                'Implementing new designs on a regular basis to provide an up-to-date look of the website',
+                'Ensuring that no visual or functional bugs appear as new features are developed by the backend team',
+                'Creation of a very complex checkout page using OOP principles',
+                'Being responsible for creation of a complex user area',
+                'Frequently examining the entire website to check for potential bugs and suggesting possible design improvements',
+                'Getting a strong familiarity with the Foundation CSS framework',
+                'Setting up Grunt tasks to speed up the development process',
+                'Writing a fair amount of php and WordPress related code'
+            ],
+            repository: 'Private repository, all code belongs to goTRG.'
+        },
+        {
+            shortName: 'aam',
+            name: 'AutoAuctionMall',
+            url: 'https://autoauctionmall.com',
+            image: '../images/vip-logo-blue.png',
+            role: 'Continuous frontend developments and updates',
+            type: 'Team project',
+            description: 'A development on this website was going on for over 3 years. It has undergone massive design and structure changes, gained a lot of new features, which eventually led to signing a contract with Walmart and creating a "Walmart Associate" version of the website dedicated to providing exclusive prices for Walmart employees.',
+            tasks_features: [
+                'Implementing new designs on a regular basis to provide an up-to-date look of the website',
+                'Ensuring that no visual or functional bugs appear as new features are developed by the backend team',
+                'Creation of a very complex checkout page using OOP principles',
+                'Being responsible for creation of a complex user area',
+                'Frequently examining the entire website to check for potential bugs and suggesting possible design improvements',
+                'Getting a strong familiarity with the Foundation CSS framework',
+                'Setting up Grunt tasks to speed up the development process',
+                'Writing a fair amount of php and WordPress related code'
+            ],
+            repository: 'Private repository, all code belongs to goTRG.'
+        },
+        {
+            shortName: 'aam2',
+            name: 'AutoAuctionMall',
+            url: 'https://autoauctionmall.com',
             image: '../images/vip-logo-blue.png',
             role: 'Continuous frontend developments and updates',
             type: 'Team project',

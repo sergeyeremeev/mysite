@@ -38,11 +38,11 @@ export default () => {
         },
         {
             name: 'Foreign Languages',
-            details: 'Although English is not my native language, I posses perfect verbal and written communication in it, thanks to the fact that I lived in the UK for 8 years during my school / university years. I am also keen on learning new languages and if a job requires me to learn a new one, I consider it a big plus and a great opportunity to add a new awesome skill to my list.'
+            details: 'Although English is not my native language, I am 100% comfortable communicating in it, thanks to the fact that I lived in the UK for 8 years during my school / university years. I am also keen on learning new languages and if a job requires me to learn a new one, I consider it a big plus and a great opportunity to add a new awesome skill to my list.'
         },
         {
             name: 'Honorable mentions',
-            details: 'Other useful things that I am comfortable working with: website performance optimization, PSD to HTML conversion, Linux terminal.'
+            details: 'Other useful things that I am comfortable working with: website performance optimization, email templates (HTML, mjml, etc), PSD to HTML conversion, Linux terminal.'
         }
     ]
 }
