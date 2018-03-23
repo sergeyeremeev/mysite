@@ -39,8 +39,16 @@ const ProjectContainer = styled.div`
   h2 {
     margin-top: 0;
     font-size: 28px;
-    text-decoration: underline;
-    color: ${themeColors.plum};
+    color: ${themeColors.darkBlue};
+    
+    &:hover {
+      color: ${themeColors.gray};
+    }
+    
+    span {
+      font-size: 15px;
+      font-weight: 300;
+    }
   }
 `;
 
@@ -48,7 +56,7 @@ const ProjectCloseBtn = styled.div`
   position: absolute;
   top: 20px;
   right: 25px;
-  color: ${themeColors.blue};
+  color: ${themeColors.darkGray};
   cursor: pointer;
   font-size: 14px;
   text-transform: uppercase;
@@ -89,7 +97,7 @@ const ProjectActive = (props) => {
         >
             <ProjectContainer onClick={handleOverlayContentsClick}>
                 <ProjectCloseBtn onClick={handleOverlayClose}>Close</ProjectCloseBtn>
-                <h2>{activeProject.name}</h2>
+                <h2><a target="_blank" href={activeProject.url}>{activeProject.name} <span>(click to view the live project)</span></a></h2>
                 <ScrolledTextContainer>
                     <Scrollbars>
                         <ProjectContent project={activeProject} />

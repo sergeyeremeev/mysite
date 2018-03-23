@@ -13,24 +13,24 @@ const MessageContainer = styled.div`
   max-width: 920px;
   box-shadow: rgba(0,0,0,0.15) 5px 5px 10px 0;
   margin: 0 auto;
-  border: 1px solid ${themeColors.blue};
+  border: 1px solid ${themeColors.green};
   padding: 10px;
 `;
 
 const MessageInner = styled.div`
-  border: 1px solid ${themeColors.blue};
+  border: 1px solid ${themeColors.green};
   padding: 40px;
   
   h2 {
     margin-top: 0;
     font-size: 32px;
-    color: ${themeColors.plum};
+    color: ${themeColors.darkBlue};
   }
   
   p {
     font-size: 15px;
     line-height: 1.4;
-    color: ${themeColors.brown};
+    color: ${themeColors.gray};
   }
 `;
 

@@ -24,8 +24,8 @@ const JobPreviewContentTop = styled.div`
   text-align: center;
   flex-direction: column;
   justify-content: flex-start;
-  color: ${themeColors.white};
-  text-shadow: rgba(0, 0, 0, 0.5) 0 2px 2px;
+  color: ${themeColors.gray};
+  text-shadow: rgba(0, 0, 0, 0.5) 0 6px 18px;
   font-size: 22px;
   line-height: 18px;
   
@@ -47,6 +47,7 @@ const JobPreviewContentBottom = styled.div`
   flex-direction: row;
   margin: auto 0 0;
   font-size: 14px;
+  color: ${themeColors.gray};
   
   span {
     display: block;

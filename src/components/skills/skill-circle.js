@@ -19,12 +19,12 @@ const SkillSingle = styled.div`
   margin: -60px;
   border-radius: 50%;
   background: ${themeColors.white};
-  color: ${props => props.selected ? themeColors.plum : themeColors.blue};
+  color: ${props => props.selected ? themeColors.darkBlue : themeColors.green};
   text-align: center;
   font-size: 15px;
   padding: 15px;
-  box-shadow: ${props => props.selected ? 'rgba(125, 25, 53, 0.35) 4px 4px 10px 0' :
-    props.hovered ? 'rgba(74, 150, 173, 0.35) 4px 4px 10px 0' : 'rgba(0, 0, 0, 0.15) 4px 4px 10px 0'};
+  box-shadow: ${props => props.selected ? 'rgba(0, 73, 95, 0.35) 4px 4px 10px 0' :
+    props.hovered ? 'rgba(133, 148, 65, 0.35) 4px 4px 10px 0' : 'rgba(0, 0, 0, 0.15) 4px 4px 10px 0'};
   text-decoration: ${props => props.selected ? 'underline' :
     props.hovered ? 'underline' : 'none'};
   transition: box-shadow 0.3s linear;

@@ -35,12 +35,12 @@ const JobDetails = styled.div`
   margin: 0 auto;
   padding: 0 40px 20px;
   justify-content: ${props => props.selected ? 'flex-start' : 'center'};
-  color: ${themeColors.brown};
+  color: ${themeColors.gray};
   
   h2 {
     text-align: center;
     margin-top: 0;
-    color: ${themeColors.plum};
+    color: ${themeColors.darkBlue};
   }
   
   img {
@@ -52,13 +52,13 @@ const JobDetails = styled.div`
   
   p,
   ul {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.4;
   }
   
   h4 {
     margin-bottom: 0;
-    color: ${themeColors.blue};
+    color: ${themeColors.green};
   }
 `;
 
@@ -68,7 +68,7 @@ const JobResetter = styled.div`
   bottom: 0;
   height: 100%;
   width: calc(100% - 40px);
-  border-top: 2px solid ${themeColors.blue};
+  border-top: 2px solid ${themeColors.darkBlue};
   transform: ${props => props.animating ? 'translateY(0)' : 'translateY(calc(100% - 2px))'};
   background: ${themeColors.beige};
   transition: 0.5s transform ease-in;

@@ -4,17 +4,26 @@ import themeColors from '../common/theme-colors';
 
 const ProjectDetails = styled.div`
   padding-right: 20px;
-  color: ${themeColors.brown};
+  color: ${themeColors.gray};
   font-size: 15px;
   
   strong,
   h4 {
-    color: ${themeColors.blue};
+    color: ${themeColors.green};
+  }
+  
+  p,
+  ul {
+    line-height: 1.3;
   }
   
   a {
     text-decoration: underline;
-    color: ${themeColors.blue};
+    color: ${themeColors.green};
+    
+    &:hover {
+      color: ${themeColors.gray};
+    }
   }
 `;
 
@@ -30,6 +39,10 @@ const ProjectSummary = styled.div`
       width: 100%;
       text-align: right;
     }
+    
+    span {
+      white-space: nowrap;
+    }
   }
 `;
 
@@ -37,7 +50,7 @@ const ProjectContent = ({project}) => {
     const renderRepositoryLink = (repo) => {
         if (repo.includes('http://') || repo.includes('https://')) {
             return (
-                <a href={repo}>{repo}</a>
+                <a target="_blank" href={repo}>{repo}</a>
             );
         } else {
             return <span>{repo}</span>;

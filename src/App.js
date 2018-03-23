@@ -11,7 +11,7 @@ import Footer from './components/footer/footer';
 import { injectGlobal } from 'styled-components';
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:300,400,700');
+  @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Ubuntu:300,400,700');
 
   html {
     box-sizing: border-box;
@@ -22,8 +22,8 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Open Sans', sans-serif;
     background: #F5F3EE;
+    font-family: Lato, sans-serif;
   }
   
   a {

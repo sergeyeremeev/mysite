@@ -28,8 +28,8 @@ const ProjectTile = styled.div`
   }
   
   img {
-    max-width: 80%;
-    max-height: 50%;
+    max-width: 50%;
+    max-height: 40%;
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -43,7 +43,7 @@ const ProjectTile = styled.div`
     left: 50%;
     transform: translateX(-50%);
     font-size: 16px;
-    color: ${themeColors.brown};
+    color: ${themeColors.gray};
     line-height: 1.4;
   }
   

@@ -12,8 +12,8 @@ const JobPreview = styled.div`
   margin-bottom: 20px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: ${props => props.active ? '4px 4px 24px rgba(10, 10, 10, 0.55)' : 
-    props.hovered ? '4px 4px 24px rgba(10, 10, 10, 0.45)' : '4px 4px 24px rgba(10, 10, 10, 0.15)'};
+  box-shadow: ${props => props.active ? '4px 4px 24px rgba(10, 10, 10, 0.35)' : 
+    props.hovered ? '4px 4px 24px rgba(10, 10, 10, 0.25)' : '4px 4px 24px rgba(10, 10, 10, 0.15)'};
   color: #fff;
   transition: box-shadow 0.3s ease;
   
@@ -49,7 +49,7 @@ const JobPreviewImage = styled.div`
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: ${themeColors.brown};
+    background: ${themeColors.ecru};
     opacity: 0.85;
   }
 `;
@@ -62,8 +62,11 @@ const JobPreviewCTA = styled.span`
   top: 66.666666%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 2px solid ${themeColors.white};
+  color: ${themeColors.ecru};
+  background: ${themeColors.gray};
+  border: 2px solid ${themeColors.gray};
   padding: 6px 24px;
+  opacity: 0.75;
 `;
 
 class JobPreviewSingle extends Component {

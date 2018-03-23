@@ -8,7 +8,7 @@ import iconMobile from '../../assets/images/mobile-phone-portrait.svg';
 import skype from '../../assets/images/skype.svg';
 
 const FooterContainer = styled.footer`
-  background: linear-gradient(${themeColors.blue}, #00495f);
+  background: ${themeColors.darkGray};
   padding: 40px 0;
 `;
 
@@ -25,7 +25,7 @@ const FooterSection = styled.div`
   }
   
   h2 {
-    color: ${themeColors.white};
+    color: ${themeColors.dijon};
     font-size: 24px;
     font-weight: 300;
     text-transform: uppercase;
@@ -104,15 +104,9 @@ function Footer() {
                 <FooterSection>
                     <h2>Let's get in touch!</h2>
                     <ContactOptions>
-                        <div>
-                            <a href="mailto:13.eremeev.sv@gmail.com"><EmailIcon /> <span>13.eremeev.sv@gmail.com</span></a>
-                        </div>
-                        <div>
-                            <MobileIcon /> <span>+7 904 859 87 42</span>
-                        </div>
-                        <div>
-                            <SkypeIcon /> <span>serge_eremeev</span>
-                        </div>
+                        <div><a href="mailto:13.eremeev.sv@gmail.com"><EmailIcon /> <span>13.eremeev.sv@gmail.com</span></a></div>
+                        <div><MobileIcon /> <span>+7 904 859 87 42</span></div>
+                        <div><SkypeIcon /> <span>serge_eremeev</span></div>
                         <div>
                             <a href="https://www.linkedin.com/in/sergey-eremeev-831a44a6/"><LinkedInIcon /> <span>My LinkedIn profile</span></a>
                         </div>

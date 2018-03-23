@@ -15,7 +15,7 @@ const SkillsCircleMain = styled.div`
   height: 380px;
   border-radius: 50%;
   padding: 52px;
-  font-size: 13px;
+  font-size: 14px;
   color: ${themeColors.brown};
   text-align: center;
   background: ${themeColors.white};
@@ -27,11 +27,11 @@ const SkillsCircleMain = styled.div`
   
   h2 {
     font-size: 32px;
-    color: ${themeColors.plum};
+    color: ${themeColors.darkBlue};
   }
   
   p {
-    color: ${themeColors.brown};
+    color: ${themeColors.gray};
   }
 `;
 
