@@ -28,14 +28,10 @@ const SkillsRotator = styled.div`
 `;
 
 class Skills extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            activeIndex: null,
-            mainCircleResetting: false
-        };
-    }
+    state = {
+        activeIndex: null,
+        mainCircleResetting: false
+    };
 
     handleSkillSelect = (index) => {
         this.setState({activeIndex: index});

@@ -15,11 +15,7 @@ const ProjectsContainer = styled.div`
 `;
 
 class Portfolio extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {overlayActive: false};
-    }
+    state = {overlayActive: false};
 
     handleProjectSelect = () =>  {
         document.body.style.overflow = 'hidden';

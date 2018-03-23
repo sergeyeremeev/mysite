@@ -32,11 +32,7 @@ const SkillSingle = styled.div`
 `;
 
 class SkillCircle extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {hovered: false};
-    }
+    state = {hovered: false};
 
     handleMouseEnter = () =>  {
         this.setState({hovered: true});

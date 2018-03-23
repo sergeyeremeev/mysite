@@ -70,13 +70,7 @@ const JobPreviewCTA = styled.span`
 `;
 
 class JobPreviewSingle extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            hovered: false
-        };
-    }
+    state = {hovered: false};
 
     onMouseEnter = () => {
         this.setState({hovered: true});

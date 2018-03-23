@@ -17,14 +17,10 @@ const WorkExperienceContainer = styled.div`
 `;
 
 class WorkExperience extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            activeIndex: null,
-            resetJobAnimation: false
-        };
-    }
+    state = {
+        activeIndex: null,
+        resetJobAnimation: false
+    };
 
     handleJobSelect = (index) => {
         this.setState({activeIndex: index});
