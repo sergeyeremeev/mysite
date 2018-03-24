@@ -20,6 +20,45 @@ const JobPreview = styled.div`
   &:last-child {
    margin-bottom: 0;
   }
+  
+  @media (max-width: 1023px) {
+    height: 280px;
+  }
+  
+  @media (max-width: 959px) {
+    width: 50%;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    flex-shrink: 1;
+    
+    &:before {
+      content: '';
+      padding-top: 66.666666%;
+      display: table;
+      width: 1px;
+      margin-left: -1px;
+    }
+    
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+  }
+  
+  @media (max-width: 620px) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    
+    &:before {
+      content: none;
+    }
+    
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 const JobPreviewImage = styled.div`
@@ -34,7 +73,7 @@ const JobPreviewImage = styled.div`
   padding: 0;
   background-repeat: no-repeat;
   background-position: center 80%;
-  background-size: auto 40%;
+  background-size: 70% auto;
   background-image: ${props => props.imgUrl ? `url(${props.imgUrl})` : 'none'};
   transform: ${props => props.hovered ? 'scale(1.2)' : 'none'};
   transition: transform 0.3s ease;
@@ -52,6 +91,14 @@ const JobPreviewImage = styled.div`
     background: ${themeColors.ecru};
     opacity: 0.85;
   }
+  
+  @media (max-width: 620px) {
+    background-size: auto 60%;
+    
+    &::after {
+      opacity: 0.92;
+    }
+  }
 `;
 
 const JobPreviewCTA = styled.span`
@@ -67,6 +114,10 @@ const JobPreviewCTA = styled.span`
   border: 2px solid ${themeColors.gray};
   padding: 6px 24px;
   opacity: 0.75;
+  
+  @media (max-width: 679px) {
+    display: none;
+  }
 `;
 
 class JobPreviewSingle extends Component {

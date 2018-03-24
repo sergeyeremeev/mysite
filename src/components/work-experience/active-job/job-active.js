@@ -22,6 +22,15 @@ const JobDetailsContainer = styled.div`
   position: relative;
   overflow: hidden;
   padding-bottom: 22px;
+  
+  @media (max-width: 959px) {
+    width: 100%;
+    height: 400px;
+  }
+  
+  @media (max-width: 959px) {
+    height: 60vh;
+  }
 `;
 
 const JobDetails = styled.div`
@@ -30,7 +39,7 @@ const JobDetails = styled.div`
   left: 50%;
   transform: ${props => props.selected ? 'none' : 'translate(-50%, -50%)'};
   display: flex;
-  width: ${props => props.selected ? '100%' : '60%'};
+  width: 100%;
   flex-direction: column;
   margin: 0 auto;
   padding: 0 40px 20px;
@@ -60,6 +69,10 @@ const JobDetails = styled.div`
     margin-bottom: 0;
     color: ${themeColors.green};
   }
+  
+  @media (max-width: 959px) {
+    padding: 0 20px 20px 0;
+  }
 `;
 
 const JobResetter = styled.div`
@@ -72,6 +85,11 @@ const JobResetter = styled.div`
   transform: ${props => props.animating ? 'translateY(0)' : 'translateY(calc(100% - 2px))'};
   background: ${themeColors.beige};
   transition: 0.5s transform ease-in;
+  
+  @media (max-width: 959px) {
+    left: 0;
+    width: 100%;
+  }
 `;
 
 const ActiveJob = (props) => {
@@ -82,7 +100,7 @@ const ActiveJob = (props) => {
         return (
             <JobDetailsContainer>
                 <JobDetails>
-                    <h2>Select a job for more details</h2>
+                    <h2>Select a job to see more details</h2>
                     <img src={handIcon} alt=""/>
                 </JobDetails>
                 <JobResetter animating={animateResetter} />

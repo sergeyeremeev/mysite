@@ -8,6 +8,16 @@ const JobList = styled.div`
   flex-direction: column;
   width: 40%;
   align-self: flex-start;
+  
+  @media (max-width: 959px) {
+    flex-direction: row;
+    align-self: auto;
+    width: 100%;
+  }
+  
+  @media (max-width: 620px) {
+    flex-direction: column;
+  }
 `;
 
 const JobListContainer = (props) => {

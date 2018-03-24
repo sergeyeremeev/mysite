@@ -11,8 +11,8 @@ const SkillsCircleMain = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 380px;
-  height: 380px;
+  width: 370px;
+  height: 370px;
   border-radius: 50%;
   padding: 52px;
   font-size: 14px;
@@ -32,6 +32,10 @@ const SkillsCircleMain = styled.div`
   
   p {
     color: ${themeColors.gray};
+  }
+  
+  @media (max-width: 679px) {
+    display: none;
   }
 `;
 

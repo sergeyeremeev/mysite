@@ -36,6 +36,7 @@ injectGlobal`
     border: none;
     color: inherit;
     font: inherit;
+    outline: none !important;
     cursor: pointer;
   }
 `;

@@ -44,6 +44,22 @@ const ProjectSummary = styled.div`
       white-space: nowrap;
     }
   }
+  
+  @media (max-width: 679px) {
+    flex-direction: column;
+    
+    div:first-child {
+      margin-bottom: 15px;
+    }
+    
+    div:last-child {
+      margin-left: 0;
+      
+      strong {
+        text-align: left;
+      }
+    }
+  }
 `;
 
 const ProjectContent = ({project}) => {

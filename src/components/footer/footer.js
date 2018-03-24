@@ -1,22 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import themeColors from '../common/theme-colors';
+import { SectionWrapper, SectionContainer } from '../common/wrappers';
 
 import atSign from '../../assets/images/at-sign.svg';
 import linkedIn from '../../assets/images/logo-linkedin-filled.svg';
 import iconMobile from '../../assets/images/mobile-phone-portrait.svg';
 import skype from '../../assets/images/skype.svg';
-
-const FooterContainer = styled.footer`
-  background: ${themeColors.darkGray};
-  padding: 40px 0;
-`;
-
-const FooterContainerInner = styled.div`
-  display: flex;
-  max-width: 920px;
-  margin: 0 auto;
-`;
 
 const FooterSection = styled.div`
 
@@ -46,6 +36,14 @@ const FooterSection = styled.div`
   
   a:hover {
     text-decoration: underline;
+  }
+  
+  @media (max-width: 679px) {
+    
+    &:last-child {
+      margin-left: 0;
+      margin-top: 40px;
+    }
   }
 `;
 
@@ -99,8 +97,8 @@ const LinkedInIcon = Icon.extend`
 
 function Footer() {
     return (
-        <FooterContainer>
-            <FooterContainerInner>
+        <SectionWrapper sectionBg={themeColors.darkGray} sectionPadding={'40px 0'}>
+            <SectionContainer containerMaxWidth={'960px'} containerDisplay={'flex'}>
                 <FooterSection>
                     <h2>Let's get in touch!</h2>
                     <ContactOptions>
@@ -119,8 +117,8 @@ function Footer() {
                         <li><a href="http://standardcoder.com/">Blog</a></li>
                     </ul>
                 </FooterSection>
-            </FooterContainerInner>
-        </FooterContainer>
+            </SectionContainer>
+        </SectionWrapper>
     );
 }
 

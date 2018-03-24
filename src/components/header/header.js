@@ -45,6 +45,39 @@ const HeaderTop = styled.div`
     font-size: 60px;
     text-transform: uppercase;
   }
+  
+  @media (max-width: 1023px) {
+  
+    h1 {
+      font-size: 26px;
+    }
+    
+    h2 {
+      font-size: 42px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+  
+    h1 {
+      font-size: 24px;
+    }
+    
+    h2 {
+      font-size: 32px;
+    }
+  }
+  
+  @media (max-width: 679px) {
+    
+    h1 {
+      font-size: 20px;
+    }
+    
+    h2 {
+      font-size: 24px;
+    }
+  }
 `;
 
 const HeaderBottom = styled.div`
@@ -62,19 +95,33 @@ const HeaderBottom = styled.div`
     border: 2px solid ${themeColors.dijon};
     color: ${themeColors.dijon};
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 21px;
     width: 220px;
     height: 50px;
     transition: box-shadow 0.3s ease, color 0.3s ease;
     outline: none !important;
     
-    &:last-child {
-      margin-left: auto;
-    }
-    
     &:hover {
       box-shadow: inset 0 -50px ${themeColors.dijon};
       color: ${themeColors.white};
+    }
+  }
+    
+  button {
+    margin-left: auto;
+  }
+  
+  @media (max-width: 679px) {
+    width: 220px;
+    flex-direction: column;
+    
+    a,
+    button {
+      width: 100%;
+    }
+    
+    a {
+      margin-bottom: 15px;
     }
   }
 `;

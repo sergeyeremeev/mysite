@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { selectJob } from '../../../actions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {selectJob} from '../../../actions';
 import themeColors from '../../common/theme-colors';
 
 const JobPreviewText = styled.div`
@@ -35,6 +35,40 @@ const JobPreviewContentTop = styled.div`
   
   h2 {
     font-size: 20px;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 1023px) {
+    line-height: 12px;
+  }
+  
+  @media (max-width: 959px) {
+    line-height: 10px;
+    font-size: 18px;
+    
+    h3 {
+      font-size: 14px;
+      margin-top: 0;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+  }
+  
+  @media (max-width: 679px) {
+    line-height: 6px;
+    font-size: 16px;
+    
+    h3 {
+      font-size: 12px;
+    }
+    
+    h2 {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -55,6 +89,10 @@ const JobPreviewContentBottom = styled.div`
     &:last-child {
       margin-left: auto;
     }
+  }
+  
+  @media (max-width: 679px) {
+    font-size: 12px;
   }
 `;
 

@@ -29,6 +29,47 @@ const SkillSingle = styled.div`
     props.hovered ? 'underline' : 'none'};
   transition: box-shadow 0.3s linear;
   cursor: pointer;
+  
+  @media (max-width: 679px) {
+    position: relative;
+    left: auto;
+    top: auto;
+    display: block;
+    height: auto;
+    max-height: ${props => props.selected ? '1000px' : '50px'};
+    text-decoration: none !important;
+    transform: none;
+    border-radius: 20px;
+    margin: 0 0 20px;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    will-change: max-height;
+    
+    &:after {
+      content: '+';
+      position: absolute;
+      right: 15px;
+      top: 5px;
+      color: ${themeColors.green};
+      font-size: 30px;
+      pointer-events: none;
+      cursor: pointer;
+    }
+  }
+`;
+
+const SkillMobileInfo = styled.div`
+  display: none;
+  
+  @media (max-width: 679px) {
+    display: block;
+    margin-top: 40px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: ${themeColors.brown};
+  }
 `;
 
 class SkillCircle extends Component {
@@ -44,14 +85,19 @@ class SkillCircle extends Component {
 
     handleClick = () => {
         this.props.onSkillSelect(this.props.skill);
-        setTimeout(() => {
+
+        if (document.body.clientWidth >= 680) {
+            setTimeout(() => {
+                this.props.selectSkill(this.props.skill);
+            }, 300);
+        } else {
             this.props.selectSkill(this.props.skill);
-        }, 300);
+        }
     };
 
     getCurrentRotation(itemIndex) {
         const rotation = this.props.angle * itemIndex;
-        return `rotate(${rotation}deg) translate(280px) rotate(-${rotation}deg);`;
+        return `rotate(${rotation}deg) translate(260px) rotate(-${rotation}deg);`;
     }
 
     render() {
@@ -65,6 +111,7 @@ class SkillCircle extends Component {
                 selected={this.props.selected}
             >
                 {this.props.skill.name}
+                <SkillMobileInfo>{this.props.skill.details}</SkillMobileInfo>
             </SkillSingle>
         );
     }

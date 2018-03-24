@@ -29,8 +29,10 @@ const ProjectContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width:  768px;
-  height: 600px;
+  width: calc(100vw - 40px);
+  max-width: 768px;
+  height: calc(100vh - 40px);
+  max-height: 600px;
   background: ${themeColors.beige};
   border-radius: 8px;
   padding: 40px;
@@ -48,7 +50,15 @@ const ProjectContainer = styled.div`
     span {
       font-size: 15px;
       font-weight: 300;
+      
+      @media (max-width: 767px) {
+        display: block;
+      }
     }
+  }
+  
+  @media (max-width: 679px) {
+    padding: 20px;
   }
 `;
 
@@ -61,6 +71,11 @@ const ProjectCloseBtn = styled.div`
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 700;
+  
+  @media (max-width: 679px) {
+    top: 10px;
+    right: 10px;
+  }
 `;
 
 const ScrolledTextContainer = styled.div`
