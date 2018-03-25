@@ -118,6 +118,9 @@ const HeaderBottom = styled.div`
     a,
     button {
       width: 100%;
+      border: 1px solid ${themeColors.dijon};
+      font-size: 19px;
+      font-family: Lato, sans-serif;
     }
     
     a {
@@ -135,7 +138,7 @@ const Header = () => {
         <HeaderContainer>
             <HeaderTop>
                 <h1>Sergey Eremeev</h1>
-                <h2>Your Next Frontend Developer</h2>
+                <h2>Your Next Developer</h2>
             </HeaderTop>
             <img src={htmlGlasses} alt=""/>
             <HeaderBottom>
