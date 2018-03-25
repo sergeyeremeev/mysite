@@ -112,6 +112,7 @@ const HeaderBottom = styled.div`
   }
   
   @media (max-width: 679px) {
+    padding-bottom: 100px;
     width: 220px;
     flex-direction: column;
     
