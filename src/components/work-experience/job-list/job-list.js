@@ -1,24 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import JobPreviewSingle from './job-preview-single';
-
-const JobList = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  align-self: flex-start;
-  
-  @media (max-width: 959px) {
-    flex-direction: row;
-    align-self: auto;
-    width: 100%;
-  }
-  
-  @media (max-width: 620px) {
-    flex-direction: column;
-  }
-`;
+import { JobList } from './style';
 
 const JobListContainer = (props) => {
     const handleJobSelect = (index) => {

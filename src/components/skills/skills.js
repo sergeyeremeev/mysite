@@ -1,31 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
-import SkillMain from './skill-main';
-import SkillCircle from './skill-circle';
+import SkillMain from './skill-main/skill-main';
+import SkillCircle from './skill-circle/skill-circle';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
-
-const SkillsContainer = styled.div`
-  position: relative;
-  height: 660px;
-  
-  @media (max-width: 679px) {
-    height: auto;
-  }
-`;
-
-const SkillsRotator = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  @media (max-width: 679px) {
-    position: static;
-    transform: none;
-  }
-`;
+import { SkillsContainer, SkillsRotator } from './style';
 
 class Skills extends Component {
     state = {

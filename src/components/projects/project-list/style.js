@@ -1,11 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { selectProject } from '../../actions';
-import styled from 'styled-components';
-import themeColors from '../common/theme-colors';
+import { css } from 'styled-components';
+import themeColors from '../../common/theme-colors';
 
-const ProjectTile = styled.div`
+export const ProjectTileCSS = css`
   position: relative;
   display: block;
   width: calc((100% - 60px) / 4);
@@ -92,33 +88,3 @@ const ProjectTile = styled.div`
     }
   }
 `;
-
-const ProjectList = (props) => {
-    const handleClick = (project) => {
-        props.selectProject(project);
-        props.onProjectSelect();
-    };
-
-    return props.projects.map((project, index) => {
-        return (
-            <ProjectTile
-                key={project.shortName}
-                onClick={() => handleClick(project)}
-                allVisible={props.mobileProjectsVisible}
-            >
-                <img src={project.image} alt=""/>
-                <h3>{project.name}</h3>
-            </ProjectTile>
-        );
-    });
-};
-
-function mapStateToProps({projects}) {
-    return {projects};
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({selectProject}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);

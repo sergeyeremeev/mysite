@@ -1,29 +1,9 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import ProjectList from './project-list';
-import ProjectActive from './project-active';
+import ProjectList from './project-list/project-list';
+import ProjectActive from './project-active/project-active';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
-import themeColors from "../common/theme-colors";
-
-const ProjectsContainer = styled.div`
-  overflow: hidden;
-  padding: 0 10px;
-`;
-
-const ProjectsViewMore = styled.button`
-  display: none;
-  
-  @media (max-width: 679px) {
-    display: inline-block;
-    float: right;
-    color: ${themeColors.darkBlue};
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 20px;
-    text-decoration: underline;
-  }
-`;
+import { ProjectsContainer, ProjectsViewMore } from './style';
 
 class Portfolio extends Component {
     state = {

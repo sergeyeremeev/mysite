@@ -1,26 +1,9 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
 import JobList from './job-list/job-list';
 import ActiveJob from './active-job/job-active';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
-
-const WorkExperienceContainer = styled.div`
-  display: flex;
-  flex: 1 0 auto;
-  height: 660px;
-  padding: 0 10px;
-  
-  @media (max-width: 1023px) {
-    height: 580px;
-  }
-  
-  @media (max-width: 959px) {
-    height: auto;
-    display: block;
-    padding: 0;
-  }
-`;
+import { WorkExperienceContainer } from './style';
 
 class WorkExperience extends Component {
     state = {
