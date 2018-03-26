@@ -8,19 +8,14 @@ const JobListContainer = (props) => {
         props.onJobSelect(index);
     };
 
-    const renderJobList = () => {
-        return props.jobs.map((job, index) => {
-
-            return (
-                <JobPreviewSingle
-                    active={index === props.activeIndex}
-                    onJobSelect={() => handleJobSelect(index)}
-                    key={job.shortName}
-                    job={job}
-                />
-            )
-        });
-    };
+    const renderJobList = () => props.jobs.map((job, index) => (
+        <JobPreviewSingle
+            active={index === props.activeIndex}
+            onJobSelect={() => handleJobSelect(index)}
+            key={job.shortName}
+            job={job}
+        />
+    ));
 
     return (
         <JobList>
@@ -29,8 +24,8 @@ const JobListContainer = (props) => {
     );
 };
 
-function mapStateToProps({jobs}) {
-    return {jobs};
+function mapStateToProps({ jobs }) {
+    return { jobs };
 }
 
 export default connect(mapStateToProps)(JobListContainer);

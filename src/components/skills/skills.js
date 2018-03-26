@@ -9,21 +9,19 @@ import { SkillsContainer, SkillsRotator } from './style';
 class Skills extends Component {
     state = {
         activeIndex: null,
-        mainCircleResetting: false
+        mainCircleResetting: false,
     };
 
     handleSkillSelect = (index) => {
         if (this.state.activeIndex !== index) {
-            this.setState({activeIndex: index});
-            this.setState({mainCircleResetting: true});
+            this.setState({ activeIndex: index });
+            this.setState({ mainCircleResetting: true });
 
             setTimeout(() => {
-                this.setState({mainCircleResetting: false});
+                this.setState({ mainCircleResetting: false });
             }, 300);
-        } else {
-            if (document.body.clientWidth < 680) {
-                this.setState({activeIndex: null});
-            }
+        } else if (document.body.clientWidth < 680) {
+            this.setState({ activeIndex: null });
         }
     };
 
@@ -38,15 +36,14 @@ class Skills extends Component {
                         />
                         <SkillsRotator>
                             {this.props.skills.map((skill, index) =>
-                                <SkillCircle
+                                (<SkillCircle
                                     key={index}
                                     skill={skill}
                                     itemIndex={index}
                                     angle={360 / this.props.skills.length}
                                     onSkillSelect={() => this.handleSkillSelect(index)}
                                     selected={index === this.state.activeIndex}
-                                />
-                            )}
+                                />))}
                         </SkillsRotator>
                     </SkillsContainer>
                 </SectionContainer>
@@ -55,8 +52,8 @@ class Skills extends Component {
     }
 }
 
-function mapStateToProps({skills}) {
-    return {skills};
+function mapStateToProps({ skills }) {
+    return { skills };
 }
 
 export default connect(mapStateToProps)(Skills);

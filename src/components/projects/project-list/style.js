@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import themeColors from '../../common/theme-colors';
 
-export const ProjectTileCSS = css`
+const ProjectTileCSS = css`
   position: relative;
   display: block;
   width: calc((100% - 60px) / 4);
@@ -84,7 +84,9 @@ export const ProjectTileCSS = css`
     }
     
     &:nth-child(n + 6) {
-      display: ${props => props.allVisible ? 'block' : 'none'};
+      display: ${props => (props.allVisible ? 'block' : 'none')};
     }
   }
 `;
+
+export default ProjectTileCSS;

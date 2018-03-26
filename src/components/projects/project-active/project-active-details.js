@@ -1,15 +1,14 @@
 import React from 'react';
 import { ProjectSummary, ProjectDetails } from './style';
 
-const ProjectContent = ({project}) => {
+const ProjectContent = ({ project }) => {
     const renderRepositoryLink = (repo) => {
         if (repo.includes('http://') || repo.includes('https://')) {
             return (
                 <a target="_blank" href={repo}>{repo}</a>
             );
-        } else {
-            return <span>{repo}</span>;
         }
+        return <span>{repo}</span>;
     };
 
     return (
@@ -29,8 +28,7 @@ const ProjectContent = ({project}) => {
             <h4>Tasks/Features/Achievements:</h4>
             <ul>
                 {project.tasks_features.map((entry, i) =>
-                    <li key={i}>{entry}</li>
-                )}
+                    <li key={i}>{entry}</li>)}
             </ul>
             <p><strong>Repository:</strong> {renderRepositoryLink(project.repository)}</p>
         </ProjectDetails>

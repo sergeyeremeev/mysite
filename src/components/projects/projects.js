@@ -8,21 +8,21 @@ import { ProjectsContainer, ProjectsViewMore } from './style';
 class Portfolio extends Component {
     state = {
         overlayActive: false,
-        mobileProjectsVisible: false
+        mobileProjectsVisible: false,
     };
 
-    handleProjectSelect = () =>  {
+    handleProjectSelect = () => {
         document.body.style.overflow = 'hidden';
-        this.setState({overlayActive: true});
+        this.setState({ overlayActive: true });
     };
 
-    handleOverlayClose = () =>  {
+    handleOverlayClose = () => {
         document.body.style.overflow = 'auto';
-        this.setState({overlayActive: false});
+        this.setState({ overlayActive: false });
     };
 
     toggleProjectsVisibility = () => {
-        this.setState({mobileProjectsVisible: !this.state.mobileProjectsVisible});
+        this.setState({ mobileProjectsVisible: !this.state.mobileProjectsVisible });
     };
 
     render() {

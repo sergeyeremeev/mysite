@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {selectJob} from '../../../actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectJob } from '../../../actions';
 import { JobPreviewTextCSS, JobPreviewContentTop, JobPreviewContentBottom } from './style';
 
 const JobPreviewText = styled.div`
@@ -10,7 +10,7 @@ const JobPreviewText = styled.div`
 `;
 
 const JobPreviewContent = (props) => {
-    const job = props.job;
+    const { job } = props;
 
     const handleClick = () => {
         props.onJobSelect();
@@ -35,7 +35,7 @@ const JobPreviewContent = (props) => {
 };
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({selectJob}, dispatch);
+    return bindActionCreators({ selectJob }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(JobPreviewContent);

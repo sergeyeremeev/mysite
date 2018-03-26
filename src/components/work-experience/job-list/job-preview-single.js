@@ -12,14 +12,14 @@ const JobPreviewImage = styled.div`
 `;
 
 class JobPreviewSingle extends Component {
-    state = {hovered: false};
+    state = { hovered: false };
 
     onMouseEnter = () => {
-        this.setState({hovered: true});
+        this.setState({ hovered: true });
     };
 
     onMouseLeave = () => {
-        this.setState({hovered: false});
+        this.setState({ hovered: false });
     };
 
     render() {

@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     projects: ProjectsReducer,
     activeProject: ActiveProjectReducer,
     skills: SkillsReducer,
-    activeSkill: ActiveSkillReducer
+    activeSkill: ActiveSkillReducer,
 });
 
 export default rootReducer;

@@ -14,7 +14,7 @@ const Header = () => {
                 <h1>Sergey Eremeev</h1>
                 <h2>Your Next Developer</h2>
             </HeaderTop>
-            <img src={htmlGlasses} alt=""/>
+            <img src={htmlGlasses} alt="" />
             <HeaderBottom>
                 <a href={CV} download="Resume">Resume</a>
                 <button onClick={handleClick}>Contact</button>

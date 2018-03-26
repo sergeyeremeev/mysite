@@ -14,15 +14,14 @@ const JobResetter = styled.div`
 `;
 
 const ActiveJob = (props) => {
-    const activeJob = props.activeJob;
-    const animateResetter = props.animateResetter;
+    const { activeJob, animateResetter } = props;
 
     if (!activeJob) {
         return (
             <JobDetailsContainer>
                 <JobDetails>
                     <h2>Select a job to see more details</h2>
-                    <img src={handIcon} alt=""/>
+                    <img src={handIcon} alt="" />
                 </JobDetails>
                 <JobResetter animating={animateResetter} />
             </JobDetailsContainer>
@@ -41,8 +40,7 @@ const ActiveJob = (props) => {
                     <h4>Duties:</h4>
                     <ul>
                         {activeJob.duties.map((duty, i) =>
-                            <li key={i}>{duty}</li>
-                        )}
+                            <li key={i}>{duty}</li>)}
                     </ul>
                 </JobDetails>
             </Scrollbars>
@@ -51,8 +49,8 @@ const ActiveJob = (props) => {
     );
 };
 
-function mapStateToProps({activeJob}) {
-    return {activeJob};
+function mapStateToProps({ activeJob }) {
+    return { activeJob };
 }
 
 export default connect(mapStateToProps)(ActiveJob);

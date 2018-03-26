@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import themeColors from '../../common/theme-colors';
 
-export const SkillsCircleMainCSS = css`
+const SkillsCircleMainCSS = css`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,9 +17,9 @@ export const SkillsCircleMainCSS = css`
   text-align: center;
   background: ${themeColors.white};
   box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 10px 0;
-  transform: ${props => props.animating ?
-    'translate(-50%, -50%) rotateY(90deg)' :
-    'translate(-50%, -50%) rotateY(0)'};
+  transform: ${props => (props.animating ?
+        'translate(-50%, -50%) rotateY(90deg)' :
+        'translate(-50%, -50%) rotateY(0)')};
   transition: transform 0.3s ease;
   
   h2 {
@@ -35,3 +35,5 @@ export const SkillsCircleMainCSS = css`
     display: none;
   }
 `;
+
+export default SkillsCircleMainCSS;

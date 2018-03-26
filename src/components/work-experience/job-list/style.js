@@ -27,8 +27,8 @@ export const JobPreviewCSS = css`
   margin-bottom: 20px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: ${props => props.active ? '4px 4px 24px rgba(10, 10, 10, 0.35)' :
-    props.hovered ? '4px 4px 24px rgba(10, 10, 10, 0.25)' : '4px 4px 24px rgba(10, 10, 10, 0.15)'};
+  box-shadow: ${props => ((props.active || props.hovered) ? '4px 4px 24px rgba(10, 10, 10, 0.35)' :
+        '4px 4px 24px rgba(10, 10, 10, 0.15)')};
   color: #fff;
   transition: box-shadow 0.3s ease;
   
@@ -89,8 +89,8 @@ export const JobPreviewImageCSS = css`
   background-repeat: no-repeat;
   background-position: center 80%;
   background-size: 70% auto;
-  background-image: ${props => props.imgUrl ? `url(${props.imgUrl})` : 'none'};
-  transform: ${props => props.hovered ? 'scale(1.2)' : 'none'};
+  background-image: ${props => (props.imgUrl ? `url(${props.imgUrl})` : 'none')};
+  transform: ${props => (props.hovered ? 'scale(1.2)' : 'none')};
   transition: transform 0.3s ease;
   
   &::after {
@@ -143,7 +143,7 @@ export const JobPreviewTextCSS = css`
   flex-direction: column;
   padding: 20px;
   cursor: pointer;
-  border: ${props => props.active ? '4px solid #fff' : 'none'};
+  border: ${props => (props.active ? '4px solid #fff' : 'none')};
 `;
 
 export const JobPreviewContentTop = styled.div`

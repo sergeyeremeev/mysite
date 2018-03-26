@@ -30,16 +30,16 @@ export const JobDetailsContainer = styled.div`
 `;
 
 export const JobDetailsCSS = css`
-  position: ${props => props.selected ? 'static' : 'absolute'};
+  position: ${props => (props.selected ? 'static' : 'absolute')};
   top: 50%;
   left: 50%;
-  transform: ${props => props.selected ? 'none' : 'translate(-50%, -50%)'};
+  transform: ${props => (props.selected ? 'none' : 'translate(-50%, -50%)')};
   display: flex;
   width: 100%;
   flex-direction: column;
   margin: 0 auto;
   padding: 0 40px 20px;
-  justify-content: ${props => props.selected ? 'flex-start' : 'center'};
+  justify-content: ${props => (props.selected ? 'flex-start' : 'center')};
   color: ${themeColors.gray};
   
   h2 {
@@ -78,7 +78,7 @@ export const JobResetterCSS = css`
   height: 100%;
   width: calc(100% - 40px);
   border-top: 2px solid ${themeColors.darkBlue};
-  transform: ${props => props.animating ? 'translateY(0)' : 'translateY(calc(100% - 2px))'};
+  transform: ${props => (props.animating ? 'translateY(0)' : 'translateY(calc(100% - 2px))')};
   background: ${themeColors.beige};
   transition: 0.5s transform ease-in;
   

@@ -10,14 +10,19 @@ const SkillSingle = styled.div`
 `;
 
 class SkillCircle extends Component {
-    state = {hovered: false};
+    state = { hovered: false };
 
-    handleMouseEnter = () =>  {
-        this.setState({hovered: true});
+    getCurrentRotation(itemIndex) {
+        const rotation = this.props.angle * itemIndex;
+        return `rotate(${rotation}deg) translate(260px) rotate(-${rotation}deg);`;
+    }
+
+    handleMouseEnter = () => {
+        this.setState({ hovered: true });
     };
 
-    handleMouseLeave = () =>  {
-        this.setState({hovered: false});
+    handleMouseLeave = () => {
+        this.setState({ hovered: false });
     };
 
     handleClick = () => {
@@ -31,11 +36,6 @@ class SkillCircle extends Component {
             this.props.selectSkill(this.props.skill);
         }
     };
-
-    getCurrentRotation(itemIndex) {
-        const rotation = this.props.angle * itemIndex;
-        return `rotate(${rotation}deg) translate(260px) rotate(-${rotation}deg);`;
-    }
 
     render() {
         return (
@@ -55,7 +55,7 @@ class SkillCircle extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({selectSkill}, dispatch)
+    return bindActionCreators({ selectSkill }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SkillCircle);

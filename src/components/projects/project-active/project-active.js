@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ProjectContent from './project-active-details';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
+import ProjectContent from './project-active-details';
 import { ProjectOverlayCSS, ProjectContainer, ScrolledTextContainer, ProjectCloseBtn } from './style';
 
 const ProjectOverlay = styled.div`
@@ -10,13 +10,13 @@ const ProjectOverlay = styled.div`
 `;
 
 const ProjectActive = (props) => {
-    const activeProject = props.activeProject;
+    const { activeProject } = props;
 
-    const handleOverlayClose = () =>  {
+    const handleOverlayClose = () => {
         props.onOverlayClose();
     };
 
-    const handleOverlayContentsClick = (e) =>  {
+    const handleOverlayContentsClick = (e) => {
         e.stopPropagation();
     };
 
@@ -37,7 +37,11 @@ const ProjectActive = (props) => {
         >
             <ProjectContainer onClick={handleOverlayContentsClick}>
                 <ProjectCloseBtn onClick={handleOverlayClose}>Close</ProjectCloseBtn>
-                <h2><a target="_blank" href={activeProject.url}>{activeProject.name} <span>(click to view the live project)</span></a></h2>
+                <h2>
+                    <a target="_blank" href={activeProject.url}>
+                        {activeProject.name} <span>(click to view the live project)</span>
+                    </a>
+                </h2>
                 <ScrolledTextContainer>
                     <Scrollbars>
                         <ProjectContent project={activeProject} />
@@ -48,8 +52,8 @@ const ProjectActive = (props) => {
     );
 };
 
-function mapStateToProps({activeProject}) {
-    return {activeProject};
+function mapStateToProps({ activeProject }) {
+    return { activeProject };
 }
 
 export default connect(mapStateToProps)(ProjectActive);

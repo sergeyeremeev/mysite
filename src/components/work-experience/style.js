@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const WorkExperienceContainer = styled.div`
+const WorkExperienceContainer = styled.div`
   display: flex;
   flex: 1 0 auto;
   height: 660px;
@@ -16,3 +16,5 @@ export const WorkExperienceContainer = styled.div`
     padding: 0;
   }
 `;
+
+export default WorkExperienceContainer;

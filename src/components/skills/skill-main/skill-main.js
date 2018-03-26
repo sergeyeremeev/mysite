@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { SkillsCircleMainCSS } from './style';
+import SkillsCircleMainCSS from './style';
 
 const SkillsCircleMain = styled.div`
   ${SkillsCircleMainCSS};
 `;
 
 const SkillMain = (props) => {
-    const activeSkill = props.activeSkill;
-    const animating = props.animating;
+    const { activeSkill, animating } = props;
 
     if (!activeSkill) {
         return (
@@ -26,8 +25,8 @@ const SkillMain = (props) => {
     );
 };
 
-function mapStateToProps({activeSkill}) {
-    return {activeSkill};
+function mapStateToProps({ activeSkill }) {
+    return { activeSkill };
 }
 
 export default connect(mapStateToProps)(SkillMain);

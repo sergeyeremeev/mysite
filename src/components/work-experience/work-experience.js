@@ -1,30 +1,30 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import JobList from './job-list/job-list';
 import ActiveJob from './active-job/job-active';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
-import { WorkExperienceContainer } from './style';
+import WorkExperienceContainer from './style';
 
 class WorkExperience extends Component {
     state = {
         activeIndex: null,
-        resetJobAnimation: false
+        resetJobAnimation: false,
     };
 
     handleJobSelect = (index) => {
-        this.setState({activeIndex: index});
+        this.setState({ activeIndex: index });
 
         if (this.state.activeIndex !== index) {
-            this.setState({resetJobAnimation: true});
+            this.setState({ resetJobAnimation: true });
 
             setTimeout(() => {
-                this.setState({resetJobAnimation: false});
+                this.setState({ resetJobAnimation: false });
             }, 600);
         }
     };
 
     endJobResetAnimation = () => {
-        this.setState({resetJobAnimation: false});
+        this.setState({ resetJobAnimation: false });
     };
 
     render() {
