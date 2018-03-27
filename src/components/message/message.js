@@ -4,7 +4,7 @@ import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
 import { MessageContainer, MessageInner } from './style';
 
 class Message extends Component {
-    state = { visible: false };
+    state = { scrolledTo: false };
 
     componentDidMount() {
         window.addEventListener('scroll', this.animateMessageOnScroll);
@@ -24,7 +24,7 @@ class Message extends Component {
                 <SectionContainer>
                     <MessageContainer
                         innerRef={(el) => { this.element = el; }}
-                        visible={this.state.visible}
+                        scrolledTo={this.state.scrolledTo}
                     >
                         <MessageInner>
                             <h2>Statement</h2>

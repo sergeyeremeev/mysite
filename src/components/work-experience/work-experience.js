@@ -16,14 +16,14 @@ const WorkExperienceContainer = styled.div`
 type State = {
     resetJobAnimation: boolean,
     activeIndex: ?number,
-    visible: boolean
+    scrolledTo: boolean
 };
 
 class WorkExperience extends Component<{}, State> {
     state = {
         activeIndex: null,
         resetJobAnimation: false,
-        visible: false,
+        scrolledTo: false,
     };
 
     componentDidMount() {
@@ -60,7 +60,7 @@ class WorkExperience extends Component<{}, State> {
                 <SectionContainer>
                     <SectionTitle>Work Experience</SectionTitle>
                     <WorkExperienceContainer
-                        visible={this.state.visible}
+                        scrolledTo={this.state.scrolledTo}
                         innerRef={(el) => { this.element = el; }}
                     >
                         <JobList

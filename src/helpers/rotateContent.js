@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export const RotatedContentCSS = css`
-  transform: ${props => props.rotated ? 'none' : 'rotate(-90deg)'};
+  transform: ${props => props.scrolledTo ? 'none' : 'rotate(-90deg)'};
   transition: transform 1.2s ease;
 `;
 
@@ -11,6 +11,6 @@ export function rotateContentOnScroll() {
     const windowHeight = window.innerHeight;
 
     if (this.element.offsetTop + 150 < scrolledFromTop + windowHeight) {
-        this.setState({ rotated: true });
+        this.setState({ scrolledTo: true });
     }
 }

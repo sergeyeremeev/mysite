@@ -15,14 +15,14 @@ type Props = {
 type State = {
     activeIndex: ?number,
     mainCircleResetting: boolean,
-    rotated: boolean
+    scrolledTo: boolean
 };
 
 class Skills extends Component<Props, State> {
     state = {
         activeIndex: null,
         mainCircleResetting: false,
-        rotated: false,
+        scrolledTo: false,
     };
 
     componentDidMount() {
@@ -59,7 +59,7 @@ class Skills extends Component<Props, State> {
                         <SkillMain
                             animating={this.state.mainCircleResetting}
                         />
-                        <SkillsRotator rotated={this.state.rotated}>
+                        <SkillsRotator scrolledTo={this.state.scrolledTo}>
                             {this.props.skills.map((skill, index) =>
                                 (<SkillCircle
                                     key={index}

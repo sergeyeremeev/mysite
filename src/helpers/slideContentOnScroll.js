@@ -1,15 +1,23 @@
 import { css } from 'styled-components';
 
 export const SlidingDownContentCSS = css`
-  transform: ${props => props.visible ? 'none' : 'translateY(-200px)'};
-  opacity: ${props => props.visible ? '1' : '0'};
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform: ${props => props.scrolledTo ? 'none' : 'translateY(-200px)'};
+  opacity: ${props => props.scrolledTo ? '1' : '0'};
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  
+  @media (max-width: 679px) {
+    transform: ${props => props.scrolledTo ? 'none' : 'translateY(-100px)'};
+  }
 `;
 
 export const SlidingUpContentCSS = css`
-  transform: ${props => props.visible ? 'none' : 'translateY(200px)'};
-  opacity: ${props => props.visible ? '1' : '0'};
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform: ${props => props.scrolledTo ? 'none' : 'translateY(200px)'};
+  opacity: ${props => props.scrolledTo ? '1' : '0'};
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  
+  @media (max-width: 679px) {
+    transform: ${props => props.scrolledTo ? 'none' : 'translateY(100px)'};
+  }
 `;
 
 export function animateContentOnScroll() {
@@ -18,6 +26,6 @@ export function animateContentOnScroll() {
     const windowHeight = window.innerHeight;
 
     if (this.element.offsetTop + 150 < scrolledFromTop + windowHeight) {
-        this.setState({ visible: true });
+        this.setState({ scrolledTo: true });
     }
 }

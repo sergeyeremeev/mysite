@@ -10,7 +10,7 @@ class Portfolio extends Component {
     state = {
         overlayActive: false,
         mobileProjectsVisible: false,
-        visible: false,
+        scrolledTo: false,
     };
 
     componentDidMount() {
@@ -46,7 +46,7 @@ class Portfolio extends Component {
                     <SectionTitle>Portfolio</SectionTitle>
                     <ProjectsContainer
                         innerRef={(el) => { this.element = el; }}
-                        visible={this.state.visible}
+                        scrolledTo={this.state.scrolledTo}
                     >
                         <ProjectList
                             onProjectSelect={this.handleProjectSelect}

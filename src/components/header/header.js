@@ -5,7 +5,7 @@ import CV from '../../assets/documents/CV.pdf';
 import { HeaderContainer, HeaderTop, HeaderBottom } from './style';
 
 class Header extends Component {
-    state = { visible: false };
+    state = { scrolledTo: false };
 
     componentDidMount() {
         animateContentOnScroll.call(this);
@@ -18,12 +18,12 @@ class Header extends Component {
     render() {
         return (
             <HeaderContainer innerRef={(el) => { this.element = el; }}>
-                <HeaderTop visible={this.state.visible} >
+                <HeaderTop scrolledTo={this.state.scrolledTo} >
                     <h1>Sergey Eremeev</h1>
                     <h2>Your Next Developer</h2>
                 </HeaderTop>
                 <img src={htmlGlasses} alt="" />
-                <HeaderBottom visible={this.state.visible} >
+                <HeaderBottom scrolledTo={this.state.scrolledTo} >
                     <a href={CV} download="Resume">Resume</a>
                     <button onClick={this.handleClick}>Contact</button>
                 </HeaderBottom>
