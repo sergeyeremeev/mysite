@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -13,7 +14,12 @@ const JobResetter = styled.div`
   ${JobResetterCSS};
 `;
 
-const ActiveJob = (props) => {
+type Props = {
+    activeJob: Object,
+    animateResetter: boolean
+};
+
+const ActiveJob = (props: Props) => {
     const { activeJob, animateResetter } = props;
 
     if (!activeJob) {

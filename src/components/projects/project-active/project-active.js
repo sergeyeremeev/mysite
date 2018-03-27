@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -10,7 +11,13 @@ const ProjectOverlay = styled.div`
   ${ProjectOverlayCSS};
 `;
 
-const ProjectActive = (props) => {
+type Props = {
+    activeProject: ?Object,
+    onOverlayClose: Function,
+    overlayActive: boolean
+};
+
+const ProjectActive = (props: Props) => {
     const { activeProject } = props;
 
     const handleOverlayClose = () => {

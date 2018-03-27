@@ -1,7 +1,14 @@
+// @flow
 import React from 'react';
 import { ProjectSummary, ProjectDetails } from './style';
 
-const ProjectContent = ({ project }) => {
+type Props = {
+    project: Object
+};
+
+const ProjectContent = (props: Props) => {
+    const { project } = props;
+
     const renderRepositoryLink = (repo) => {
         if (repo.includes('http://') || repo.includes('https://')) {
             return (

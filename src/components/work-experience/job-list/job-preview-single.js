@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import JobPreviewContent from './job-preview-content';
@@ -11,7 +12,13 @@ const JobPreviewImage = styled.div`
   ${JobPreviewImageCSS};
 `;
 
-class JobPreviewSingle extends Component {
+type Props = {
+    active: boolean,
+    job: Object,
+    onJobSelect: Function
+};
+
+class JobPreviewSingle extends Component<Props, {hovered: boolean}> {
     state = { hovered: false };
 
     onMouseEnter = () => {

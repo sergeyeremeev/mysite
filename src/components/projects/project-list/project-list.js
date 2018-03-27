@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -9,7 +10,14 @@ const ProjectTile = styled.div`
   ${ProjectTileCSS};
 `;
 
-const ProjectList = (props) => {
+type Props = {
+    selectProject: Function,
+    onProjectSelect: Function,
+    projects: Object,
+    mobileProjectsVisible: boolean
+};
+
+const ProjectList = (props: Props) => {
     const handleClick = (project) => {
         props.selectProject(project);
         props.onProjectSelect();

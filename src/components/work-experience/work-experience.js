@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import JobList from './job-list/job-list';
 import ActiveJob from './active-job/job-active';
@@ -5,13 +6,18 @@ import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
 import WorkExperienceContainer from './style';
 
-class WorkExperience extends Component {
+type State = {
+    resetJobAnimation: boolean,
+    activeIndex: ?number
+};
+
+class WorkExperience extends Component<{}, State> {
     state = {
         activeIndex: null,
         resetJobAnimation: false,
     };
 
-    handleJobSelect = (index) => {
+    handleJobSelect = (index: number) => {
         this.setState({ activeIndex: index });
 
         if (this.state.activeIndex !== index) {

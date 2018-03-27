@@ -1,9 +1,16 @@
+// @flow
 import React from 'react';
 import { connect } from 'react-redux';
 import JobPreviewSingle from './job-preview-single';
 import { JobList } from './style';
 
-const JobListContainer = (props) => {
+type Props = {
+    jobs: Array<Object>,
+    activeIndex: ?number,
+    onJobSelect: Function
+};
+
+const JobListContainer = (props: Props) => {
     const handleJobSelect = (index) => {
         props.onJobSelect(index);
     };

@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -9,10 +10,23 @@ const SkillSingle = styled.div`
   ${SkillSingleCSS};
 `;
 
-class SkillCircle extends Component {
+type Props = {
+    angle: number,
+    skill: Object,
+    selectSkill: Function,
+    onSkillSelect: Function,
+    itemIndex: number,
+    selected: boolean
+};
+
+type State = {
+    hovered: boolean
+};
+
+class SkillCircle extends Component<Props, State> {
     state = { hovered: false };
 
-    getCurrentRotation(itemIndex) {
+    getCurrentRotation(itemIndex: number) {
         const rotation = this.props.angle * itemIndex;
         return `rotate(${rotation}deg) translate(260px) rotate(-${rotation}deg);`;
     }
@@ -28,7 +42,7 @@ class SkillCircle extends Component {
     handleClick = () => {
         this.props.onSkillSelect(this.props.skill);
 
-        if (document.body.clientWidth >= 680) {
+        if (document.body && document.body.clientWidth >= 680) {
             setTimeout(() => {
                 this.props.selectSkill(this.props.skill);
             }, 300);

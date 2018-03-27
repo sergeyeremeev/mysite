@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -9,7 +10,14 @@ const JobPreviewText = styled.div`
   ${JobPreviewTextCSS};
 `;
 
-const JobPreviewContent = (props) => {
+type Props = {
+    job: Object,
+    onJobSelect: Function,
+    selectJob: Function,
+    active: boolean
+};
+
+const JobPreviewContent = (props: Props) => {
     const { job } = props;
 
     const handleClick = () => {

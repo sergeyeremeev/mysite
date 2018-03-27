@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SkillMain from './skill-main/skill-main';
@@ -6,7 +7,16 @@ import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
 import { SkillsContainer, SkillsRotator } from './style';
 
-class Skills extends Component {
+type Props = {
+    skills: Array<Object>
+};
+
+type State = {
+    activeIndex: ?number,
+    mainCircleResetting: boolean
+};
+
+class Skills extends Component<Props, State> {
     state = {
         activeIndex: null,
         mainCircleResetting: false,
@@ -20,7 +30,7 @@ class Skills extends Component {
             setTimeout(() => {
                 this.setState({ mainCircleResetting: false });
             }, 300);
-        } else if (document.body.clientWidth < 680) {
+        } else if (document.body && document.body.clientWidth < 680) {
             this.setState({ activeIndex: null });
         }
     };
