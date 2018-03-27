@@ -5,6 +5,7 @@ import SkillMain from './skill-main/skill-main';
 import SkillCircle from './skill-circle/skill-circle';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
+import { rotateContentOnScroll } from '../../helpers/rotateContent';
 import { SkillsContainer, SkillsRotator } from './style';
 
 type Props = {
@@ -13,14 +14,28 @@ type Props = {
 
 type State = {
     activeIndex: ?number,
-    mainCircleResetting: boolean
+    mainCircleResetting: boolean,
+    rotated: boolean
 };
 
 class Skills extends Component<Props, State> {
     state = {
         activeIndex: null,
         mainCircleResetting: false,
+        rotated: false,
     };
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.rotateSkillsOnScroll);
+    }
+
+    componentDidUpdate() {
+        if (this.state.visible === true) {
+            window.removeEventListener('scroll', this.rotateSkillsOnScroll);
+        }
+    }
+
+    rotateSkillsOnScroll = rotateContentOnScroll.bind(this);
 
     handleSkillSelect = (index) => {
         if (this.state.activeIndex !== index) {
@@ -40,11 +55,11 @@ class Skills extends Component<Props, State> {
             <SectionWrapper>
                 <SectionContainer>
                     <SectionTitle>Skills</SectionTitle>
-                    <SkillsContainer>
+                    <SkillsContainer innerRef={(el) => { this.element = el; }}>
                         <SkillMain
                             animating={this.state.mainCircleResetting}
                         />
-                        <SkillsRotator>
+                        <SkillsRotator rotated={this.state.rotated}>
                             {this.props.skills.map((skill, index) =>
                                 (<SkillCircle
                                     key={index}

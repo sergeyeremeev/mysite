@@ -1,5 +1,5 @@
 import React from 'react';
-import themeColors from '../common/theme-colors';
+import themeColors from '../../helpers/theme-colors';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
 import { FooterSection, ContactOptions, EmailIcon, LinkedInIcon, MobileIcon, SkypeIcon } from './style';
 

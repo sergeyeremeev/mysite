@@ -3,13 +3,27 @@ import ProjectList from './project-list/project-list';
 import ProjectActive from './project-active/project-active';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
+import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
 import { ProjectsContainer, ProjectsViewMore } from './style';
 
 class Portfolio extends Component {
     state = {
         overlayActive: false,
         mobileProjectsVisible: false,
+        visible: false,
     };
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.animateProjectsOnScroll);
+    }
+
+    componentDidUpdate() {
+        if (this.state.visible === true) {
+            window.removeEventListener('scroll', this.animateProjectsOnScroll);
+        }
+    }
+
+    animateProjectsOnScroll = animateContentOnScroll.bind(this);
 
     handleProjectSelect = () => {
         document.body.style.overflow = 'hidden';
@@ -30,7 +44,10 @@ class Portfolio extends Component {
             <SectionWrapper>
                 <SectionContainer>
                     <SectionTitle>Portfolio</SectionTitle>
-                    <ProjectsContainer>
+                    <ProjectsContainer
+                        innerRef={(el) => { this.element = el; }}
+                        visible={this.state.visible}
+                    >
                         <ProjectList
                             onProjectSelect={this.handleProjectSelect}
                             mobileProjectsVisible={this.state.mobileProjectsVisible}

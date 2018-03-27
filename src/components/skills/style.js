@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { RotatedContentCSS } from '../../helpers/rotateContent';
 
 export const SkillsContainer = styled.div`
   position: relative;
@@ -14,6 +15,7 @@ export const SkillsRotator = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  ${RotatedContentCSS};
   
   @media (max-width: 679px) {
     position: static;

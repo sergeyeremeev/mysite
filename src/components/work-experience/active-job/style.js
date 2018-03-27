@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
-import themeColors from '../../common/theme-colors';
+import themeColors from '../../../helpers/theme-colors';
 
 
 const handWiggle = keyframes`

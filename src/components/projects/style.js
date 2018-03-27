@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import themeColors from '../common/theme-colors';
+import { SlidingUpContentCSS } from '../../helpers/slideContentOnScroll';
+import themeColors from '../../helpers/theme-colors';
 
 export const ProjectsContainer = styled.div`
   overflow: hidden;
   padding: 0 10px;
+  ${SlidingUpContentCSS};
 `;
 
 export const ProjectsViewMore = styled.button`

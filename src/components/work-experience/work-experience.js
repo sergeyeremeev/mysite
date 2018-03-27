@@ -1,21 +1,42 @@
 // @flow
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import JobList from './job-list/job-list';
 import ActiveJob from './active-job/job-active';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
-import WorkExperienceContainer from './style';
+import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
+import WorkExperienceContainerCSS from './style';
+
+const WorkExperienceContainer = styled.div`
+  ${WorkExperienceContainerCSS};
+`;
+
 
 type State = {
     resetJobAnimation: boolean,
-    activeIndex: ?number
+    activeIndex: ?number,
+    visible: boolean
 };
 
 class WorkExperience extends Component<{}, State> {
     state = {
         activeIndex: null,
         resetJobAnimation: false,
+        visible: false,
     };
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.animateWorkOnScroll);
+    }
+
+    componentDidUpdate() {
+        if (this.state.visible === true) {
+            window.removeEventListener('scroll', this.animateWorkOnScroll);
+        }
+    }
+
+    animateWorkOnScroll = animateContentOnScroll.bind(this);
 
     handleJobSelect = (index: number) => {
         this.setState({ activeIndex: index });
@@ -38,7 +59,10 @@ class WorkExperience extends Component<{}, State> {
             <SectionWrapper>
                 <SectionContainer>
                     <SectionTitle>Work Experience</SectionTitle>
-                    <WorkExperienceContainer>
+                    <WorkExperienceContainer
+                        visible={this.state.visible}
+                        innerRef={(el) => { this.element = el; }}
+                    >
                         <JobList
                             activeIndex={this.state.activeIndex}
                             onJobSelect={this.handleJobSelect}

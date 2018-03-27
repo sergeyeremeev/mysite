@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import themeColors from '../../common/theme-colors';
+import themeColors from '../../../helpers/theme-colors';
 
 const SkillsCircleMainCSS = css`
   position: absolute;

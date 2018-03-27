@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import themeColors from '../common/theme-colors';
+import themeColors from '../../helpers/theme-colors';
 import atSign from '../../assets/images/at-sign.svg';
 import linkedIn from '../../assets/images/logo-linkedin-filled.svg';
 import iconMobile from '../../assets/images/mobile-phone-portrait.svg';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import themeColors from './theme-colors';
+import themeColors from '../../helpers/theme-colors';
 
 const SectionTitle = styled.h1`
   color: ${themeColors.darkGray};

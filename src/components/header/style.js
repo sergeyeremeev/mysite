@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import themeColors from '../common/theme-colors';
+import { SlidingUpContentCSS, SlidingDownContentCSS } from '../../helpers/slideContentOnScroll';
+import themeColors from '../../helpers/theme-colors';
 
 export const HeaderContainer = styled.header`
   position: relative;
@@ -28,6 +29,7 @@ export const HeaderTop = styled.div`
   margin-bottom: auto;
   padding-top: 40px;
   text-shadow: rgba(0, 0, 0, 0.5) 0 3px 1px;
+  ${SlidingDownContentCSS};
   
   h1 {
     margin: 0;
@@ -82,6 +84,7 @@ export const HeaderBottom = styled.div`
   width: 480px;
   margin-top: auto;
   padding-bottom: 80px;
+  ${SlidingUpContentCSS};
   
   a,
   button {

@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import { css } from 'styled-components';
+import { SlidingUpContentCSS } from '../../helpers/slideContentOnScroll';
 
-const WorkExperienceContainer = styled.div`
+const WorkExperienceContainerCSS = css`
   display: flex;
   flex: 1 0 auto;
   height: 660px;
   padding: 0 10px;
+  ${SlidingUpContentCSS};
   
   @media (max-width: 1023px) {
     height: 580px;
@@ -17,4 +19,4 @@ const WorkExperienceContainer = styled.div`
   }
 `;
 
-export default WorkExperienceContainer;
+export default WorkExperienceContainerCSS;

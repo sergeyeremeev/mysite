@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import themeColors from '../common/theme-colors';
+import { SlidingUpContentCSS } from '../../helpers/slideContentOnScroll';
+import themeColors from '../../helpers/theme-colors';
 
 export const MessageContainer = styled.div`
   text-align: center;
@@ -9,6 +10,7 @@ export const MessageContainer = styled.div`
   margin: 0 auto;
   border: 1px solid ${themeColors.green};
   padding: 10px;
+  ${SlidingUpContentCSS};
   
   @media (max-width: 679px) {
     padding: 6px;
