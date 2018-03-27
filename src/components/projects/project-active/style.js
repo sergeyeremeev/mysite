@@ -31,7 +31,7 @@ export const ProjectContainer = styled.div`
   max-height: 600px;
   background: ${themeColors.beige};
   border-radius: 8px;
-  padding: 40px;
+  padding: 60px 40px 40px;
   overflow: hidden;
   
   h2 {
@@ -54,23 +54,28 @@ export const ProjectContainer = styled.div`
   }
   
   @media (max-width: 679px) {
-    padding: 20px;
+    padding: 40px 20px 20px;
   }
 `;
 
 export const ProjectCloseBtn = styled.div`
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 30px;
+  right: 40px;
   color: ${themeColors.darkGray};
   cursor: pointer;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 700;
   
+  img {
+    width: 16px;
+    height: auto;
+  }
+  
   @media (max-width: 679px) {
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
   }
 `;
 
