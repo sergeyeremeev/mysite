@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
 import ProjectContent from './project-active-details';
 import iconClose from '../../../assets/images/close.svg';
-import { ProjectOverlayCSS, ProjectContainer, ScrolledTextContainer, ProjectCloseBtn } from './style';
+import { OverlayCSS, OverlayContainer, OverlayCloseBtn, ScrolledTextContainer } from '../../common/overlay';
 
-const ProjectOverlay = styled.div`
-  ${ProjectOverlayCSS};
+const Overlay = styled.div`
+  ${OverlayCSS};
 `;
 
 type Props = {
@@ -37,21 +37,21 @@ class ProjectActive extends Component<Props> {
 
         if (!activeProject) {
             return (
-                <ProjectOverlay>
-                    <ProjectContainer>
+                <Overlay>
+                    <OverlayContainer>
                         <h2>No project selected</h2>
-                    </ProjectContainer>
-                </ProjectOverlay>
+                    </OverlayContainer>
+                </Overlay>
             );
         }
 
         return (
-            <ProjectOverlay
+            <Overlay
                 overlayActive={this.props.overlayActive}
                 onClick={this.handleOverlayClose}
             >
-                <ProjectContainer onClick={this.handleOverlayContentsClick}>
-                    <ProjectCloseBtn onClick={this.handleOverlayClose}><img src={iconClose} alt="" /></ProjectCloseBtn>
+                <OverlayContainer onClick={this.handleOverlayContentsClick}>
+                    <OverlayCloseBtn onClick={this.handleOverlayClose}><img src={iconClose} alt="" /></OverlayCloseBtn>
                     <h2>
                         <a target="_blank" href={activeProject.url}>
                             {activeProject.name} <span>(click to view the live project)</span>
@@ -62,11 +62,10 @@ class ProjectActive extends Component<Props> {
                             <ProjectContent project={activeProject} />
                         </Scrollbars>
                     </ScrolledTextContainer>
-                </ProjectContainer>
-            </ProjectOverlay>
+                </OverlayContainer>
+            </Overlay>
         );
     }
-
 }
 
 function mapStateToProps({ activeProject }) {

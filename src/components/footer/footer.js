@@ -1,12 +1,10 @@
 import React from 'react';
-import themeColors from '../../helpers/theme-colors';
-import { SectionWrapper, SectionContainer } from '../common/wrappers';
-import { FooterSection, ContactOptions, EmailIcon, LinkedInIcon, MobileIcon, SkypeIcon } from './style';
+import { SectionContainer } from '../common/wrappers';
+import { WebsiteFooter, FooterSection, ContactOptions, EmailIcon, LinkedInIcon, MobileIcon, SkypeIcon } from './style';
 
 function Footer() {
     return (
-        // TODO: change SectionWrapper to footer tag, increase top padding (especially on mobile)
-        <SectionWrapper sectionBg={themeColors.darkGray} sectionPadding="40px 0">
+        <WebsiteFooter>
             <SectionContainer containerMaxWidth="960px" containerDisplay="flex">
                 <FooterSection>
                     <h2>Let&#39;s get in touch!</h2>
@@ -33,7 +31,7 @@ function Footer() {
                     </ul>
                 </FooterSection>
             </SectionContainer>
-        </SectionWrapper>
+        </WebsiteFooter>
     );
 }
 

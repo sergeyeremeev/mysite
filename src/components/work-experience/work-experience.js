@@ -20,7 +20,6 @@ type State = {
     width: number
 };
 
-// TODO refactor code, to reuse overlays
 class WorkExperience extends Component<{}, State> {
     state = {
         activeIndex: null,
@@ -49,8 +48,6 @@ class WorkExperience extends Component<{}, State> {
         this.setState({ width: window.innerWidth });
     };
 
-    animateWorkOnScroll = animateContentOnScroll.bind(this);
-
     handleJobSelect = (index: number) => {
         if (this.state.width < 620) {
             document.body.style.overflow = 'hidden';
@@ -67,6 +64,8 @@ class WorkExperience extends Component<{}, State> {
             }
         }
     };
+
+    animateWorkOnScroll = animateContentOnScroll.bind(this);
 
     handleOverlayClose = () => {
         document.body.style.overflow = 'auto';

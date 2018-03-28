@@ -66,10 +66,6 @@ export const JobPreviewCSS = css`
     margin-right: 0;
     margin-bottom: 20px;
     
-    &:before {
-      content: none;
-    }
-    
     &:last-child {
       margin-bottom: 20px;
     }
@@ -107,8 +103,8 @@ export const JobPreviewImageCSS = css`
     opacity: 0.85;
   }
   
-  @media (max-width: 620px) {
-    background-size: auto 60%;
+  @media (max-width: 619px) {
+    background-size: auto 50%;
     
     &::after {
       opacity: 0.92;
@@ -131,6 +127,18 @@ export const JobPreviewCTA = styled.span`
   opacity: 0.75;
   
   @media (max-width: 679px) {
+    display: none;
+  }
+  
+  @media (max-width: 619px) {
+    display: block;
+  }
+  
+  @media (max-width: 619px) {
+    display: block;
+  }
+  
+  @media (max-width: 379px) {
     display: none;
   }
 `;
@@ -198,6 +206,19 @@ export const JobPreviewContentTop = styled.div`
     
     h2 {
       font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 619px) {
+    line-height: 10px;
+    font-size: 20px;
+    
+    h3 {
+      font-size: 14px;
+    }
+    
+    h2 {
+      font-size: 18px;
     }
   }
 `;

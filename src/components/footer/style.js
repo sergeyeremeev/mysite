@@ -5,6 +5,17 @@ import linkedIn from '../../assets/images/logo-linkedin-filled.svg';
 import iconMobile from '../../assets/images/mobile-phone-portrait.svg';
 import skype from '../../assets/images/skype.svg';
 
+export const WebsiteFooter = styled.footer`
+  background: ${themeColors.darkGray};
+  padding: 40px 0;
+  margin-top: 60px;
+  
+  @media (max-width: 767px) {
+    padding: 30px 0;
+    margin-top: 30px;
+  }
+`;
+
 export const FooterSection = styled.div`
 
   &:last-child {
