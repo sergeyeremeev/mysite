@@ -16,18 +16,23 @@ const WorkExperienceContainer = styled.div`
 type State = {
     resetJobAnimation: boolean,
     activeIndex: ?number,
-    scrolledTo: boolean
+    scrolledTo: boolean,
+    width: number
 };
 
+// TODO refactor code, to reuse overlays
 class WorkExperience extends Component<{}, State> {
     state = {
         activeIndex: null,
         resetJobAnimation: false,
         scrolledTo: false,
+        overlayActive: false,
+        width: window.innerWidth,
     };
 
     componentDidMount() {
         window.addEventListener('scroll', this.animateWorkOnScroll);
+        window.addEventListener('resize', this.handleWindowSizeChange);
     }
 
     componentDidUpdate() {
@@ -36,18 +41,36 @@ class WorkExperience extends Component<{}, State> {
         }
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowSizeChange);
+    }
+
+    handleWindowSizeChange = () => {
+        this.setState({ width: window.innerWidth });
+    };
+
     animateWorkOnScroll = animateContentOnScroll.bind(this);
 
     handleJobSelect = (index: number) => {
-        this.setState({ activeIndex: index });
+        if (this.state.width < 620) {
+            document.body.style.overflow = 'hidden';
+            this.setState({ overlayActive: true });
+        } else {
+            this.setState({ activeIndex: index });
 
-        if (this.state.activeIndex !== index) {
-            this.setState({ resetJobAnimation: true });
+            if (this.state.activeIndex !== index) {
+                this.setState({ resetJobAnimation: true });
 
-            setTimeout(() => {
-                this.setState({ resetJobAnimation: false });
-            }, 600);
+                setTimeout(() => {
+                    this.setState({ resetJobAnimation: false });
+                }, 600);
+            }
         }
+    };
+
+    handleOverlayClose = () => {
+        document.body.style.overflow = 'auto';
+        this.setState({ overlayActive: false });
     };
 
     endJobResetAnimation = () => {
@@ -55,6 +78,8 @@ class WorkExperience extends Component<{}, State> {
     };
 
     render() {
+        const shouldDisplayMobile = this.state.width < 620;
+
         return (
             <SectionWrapper>
                 <SectionContainer>
@@ -66,10 +91,14 @@ class WorkExperience extends Component<{}, State> {
                         <JobList
                             activeIndex={this.state.activeIndex}
                             onJobSelect={this.handleJobSelect}
+                            isMobile={shouldDisplayMobile}
                         />
                         <ActiveJob
                             animateResetter={this.state.resetJobAnimation}
                             onJobUpdate={this.endJobResetAnimation}
+                            overlayActive={this.state.overlayActive}
+                            onOverlayClose={this.handleOverlayClose}
+                            shouldDisplayMobile={shouldDisplayMobile}
                         />
                     </WorkExperienceContainer>
                 </SectionContainer>

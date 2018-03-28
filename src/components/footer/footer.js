@@ -5,6 +5,7 @@ import { FooterSection, ContactOptions, EmailIcon, LinkedInIcon, MobileIcon, Sky
 
 function Footer() {
     return (
+        // TODO: change SectionWrapper to footer tag, increase top padding (especially on mobile)
         <SectionWrapper sectionBg={themeColors.darkGray} sectionPadding="40px 0">
             <SectionContainer containerMaxWidth="960px" containerDisplay="flex">
                 <FooterSection>

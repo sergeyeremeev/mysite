@@ -15,7 +15,8 @@ const JobPreviewImage = styled.div`
 type Props = {
     active: boolean,
     job: Object,
-    onJobSelect: Function
+    onJobSelect: Function,
+    isMobile: boolean
 };
 
 class JobPreviewSingle extends Component<Props, {hovered: boolean}> {
@@ -42,6 +43,7 @@ class JobPreviewSingle extends Component<Props, {hovered: boolean}> {
                     active={this.props.active}
                     job={this.props.job}
                     onJobSelect={this.props.onJobSelect}
+                    isMobile={this.props.isMobile}
                 />
                 <JobPreviewCTA>Learn more</JobPreviewCTA>
             </JobPreview>

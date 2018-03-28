@@ -7,7 +7,8 @@ import { JobList } from './style';
 type Props = {
     jobs: Array<Object>,
     activeIndex: ?number,
-    onJobSelect: Function
+    onJobSelect: Function,
+    isMobile: boolean,
 };
 
 const JobListContainer = (props: Props) => {
@@ -21,6 +22,7 @@ const JobListContainer = (props: Props) => {
             onJobSelect={() => handleJobSelect(index)}
             key={job.shortName}
             job={job}
+            isMobile={props.isMobile}
         />
     ));
 

@@ -14,17 +14,23 @@ type Props = {
     job: Object,
     onJobSelect: Function,
     selectJob: Function,
-    active: boolean
+    active: boolean,
+    isMobile: boolean
 };
 
 const JobPreviewContent = (props: Props) => {
     const { job } = props;
 
     const handleClick = () => {
-        props.onJobSelect();
-        setTimeout(() => {
+        if (props.isMobile) {
             props.selectJob(job);
-        }, 600);
+            props.onJobSelect();
+        } else {
+            props.onJobSelect();
+            setTimeout(() => {
+                props.selectJob(job);
+            }, 600);
+        }
     };
 
     return (
