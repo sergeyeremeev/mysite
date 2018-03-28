@@ -31,6 +31,14 @@ type Props = {
 };
 
 class ActiveJob extends Component<Props> {
+    componentDidUpdate() {
+        if (this.scrollbars) {
+            setTimeout(() => {
+                this.scrollbars.scrollToTop();
+            }, 600);
+        }
+    }
+
     handleOverlayClose = () => {
         this.props.onOverlayClose();
     };
@@ -65,7 +73,7 @@ class ActiveJob extends Component<Props> {
                         <JobCloseBtn onClick={this.handleOverlayClose}><img src={iconClose} alt="" /></JobCloseBtn>
                         <h2>{activeJob.title}</h2>
                         <ScrolledTextContainer>
-                            <Scrollbars>
+                            <Scrollbars ref={(el) => { this.scrollbars = el; }}>
                                 <JobDetails selected>
                                     <p>Company/Organisation: <strong>{activeJob.companyName}</strong></p>
                                     <p>
@@ -101,7 +109,7 @@ class ActiveJob extends Component<Props> {
 
         return (
             <JobDetailsContainer>
-                <Scrollbars>
+                <Scrollbars ref={(el) => { this.scrollbars = el; }}>
                     <JobDetails selected>
                         <h2>{activeJob.title}</h2>
                         <p>Company/Organisation: <strong>{activeJob.companyName}</strong></p>
