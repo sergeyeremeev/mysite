@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
-import htmlGlasses from '../../assets/images/html_glasses_final.svg';
+import htmlGlasses from '../../assets/images/html_glasses_logo.svg';
 import CV from '../../assets/documents/CV.pdf';
 import { HeaderContainer, HeaderTop, HeaderBottom } from './style';
 

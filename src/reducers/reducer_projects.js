@@ -4,12 +4,12 @@ import hulqLogo from '../assets/images/hulq_logo.png';
 import dlLogo from '../assets/images/dl_logo.png';
 import goTRGLogo from '../assets/images/gotrg_logo.svg';
 import aamLogo from '../assets/images/aam_logo.png';
-import htmlGlasses from '../assets/images/html_glasses_final.svg';
+import htmlGlasses from '../assets/images/html_glasses_logo.svg';
 import mapImage from '../assets/images/map_project.png';
 
 export default () => [
     {
-        shortName: 'ThisWebsite',
+        shortName: 'NextDev',
         name: 'Your Next Developer',
         url: 'http://sergeyeremeev.github.io/resume-site/',
         image: htmlGlasses,
@@ -22,6 +22,10 @@ export default () => [
             'Styled components are used to style the application in a more "reactive" way',
             'A completely custom self-created website design',
             'Project laid out as a single page application',
+            'Best practices are ensured with eslint code checking (air-bnb code style) and Flow static type checking',
+            'Every single feature, both functional and visual, is built by hand without the use of third-party plugins',
+            'The only plugin used is react-custom-scrollbars',
+            'Website logo is a vector graphic created by me in InkScape',
         ],
         repository: 'https://github.com/sergeyeremeev/mysite',
     },
