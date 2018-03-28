@@ -42,15 +42,16 @@ export const SkillSingleCSS = css`
     transition: max-height 0.3s ease;
     will-change: max-height;
     
-    &:after {
-      content: '+';
+    &::after {
+      content: '${props => (props.selected ? '\u2212' : '\u002B')}';
       position: absolute;
       right: 15px;
-      top: 5px;
+      top: 12px;
       color: ${themeColors.green};
       font-size: 30px;
       pointer-events: none;
       cursor: pointer;
+      line-height: 21px;
     }
   }
 `;
