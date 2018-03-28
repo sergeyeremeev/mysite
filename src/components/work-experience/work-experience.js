@@ -14,10 +14,11 @@ const WorkExperienceContainer = styled.div`
 
 
 type State = {
-    resetJobAnimation: boolean,
     activeIndex: ?number,
+    resetJobAnimation: boolean,
     scrolledTo: boolean,
-    width: number
+    overlayActive: boolean,
+    width: number,
 };
 
 class WorkExperience extends Component<{}, State> {
@@ -35,7 +36,7 @@ class WorkExperience extends Component<{}, State> {
     }
 
     componentDidUpdate() {
-        if (this.state.visible === true) {
+        if (this.state.scrolledTo === true) {
             window.removeEventListener('scroll', this.animateWorkOnScroll);
         }
     }
@@ -50,7 +51,9 @@ class WorkExperience extends Component<{}, State> {
 
     handleJobSelect = (index: number) => {
         if (this.state.width < 620) {
-            document.body.style.overflow = 'hidden';
+            if (document.body) {
+                document.body.style.overflow = 'hidden';
+            }
             this.setState({ overlayActive: true });
         } else {
             this.setState({ activeIndex: index });
@@ -68,13 +71,17 @@ class WorkExperience extends Component<{}, State> {
     animateWorkOnScroll = animateContentOnScroll.bind(this);
 
     handleOverlayClose = () => {
-        document.body.style.overflow = 'auto';
+        if (document.body) {
+            document.body.style.overflow = 'auto';
+        }
         this.setState({ overlayActive: false });
     };
 
     endJobResetAnimation = () => {
         this.setState({ resetJobAnimation: false });
     };
+
+    element: ?HTMLDivElement;
 
     render() {
         const shouldDisplayMobile = this.state.width < 620;

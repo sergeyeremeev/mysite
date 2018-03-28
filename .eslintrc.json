@@ -26,5 +26,8 @@
         "react/jsx-indent": [ 2, 4 ],
         "react/jsx-indent-props": [ 4 ],
         "no-nested-ternary": [ 0 ]
+    },
+    "globals": {
+        "SyntheticEvent": true
     }
 }

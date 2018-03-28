@@ -28,7 +28,7 @@ class ProjectActive extends Component<Props> {
         this.props.onOverlayClose();
     };
 
-    handleOverlayContentsClick = (e) => {
+    handleOverlayContentsClick = (e: SyntheticEvent<HTMLDivElement>) => {
         e.stopPropagation();
     };
 

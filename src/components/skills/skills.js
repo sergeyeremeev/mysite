@@ -30,7 +30,7 @@ class Skills extends Component<Props, State> {
     }
 
     componentDidUpdate() {
-        if (this.state.visible === true) {
+        if (this.state.scrolledTo === true) {
             window.removeEventListener('scroll', this.rotateSkillsOnScroll);
         }
     }
@@ -49,6 +49,8 @@ class Skills extends Component<Props, State> {
             this.setState({ activeIndex: null });
         }
     };
+
+    element: ?HTMLDivElement;
 
     render() {
         return (

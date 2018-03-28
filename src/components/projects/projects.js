@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import ProjectList from './project-list/project-list';
 import ProjectActive from './project-active/project-active';
@@ -6,7 +7,13 @@ import { SectionWrapper, SectionContainer } from '../common/wrappers';
 import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
 import { ProjectsContainer, ProjectsViewMore } from './style';
 
-class Portfolio extends Component {
+type State = {
+    overlayActive: boolean,
+    mobileProjectsVisible: boolean,
+    scrolledTo: boolean,
+};
+
+class Portfolio extends Component<{}, State> {
     state = {
         overlayActive: false,
         mobileProjectsVisible: false,
@@ -18,7 +25,7 @@ class Portfolio extends Component {
     }
 
     componentDidUpdate() {
-        if (this.state.visible === true) {
+        if (this.state.scrolledTo === true) {
             window.removeEventListener('scroll', this.animateProjectsOnScroll);
         }
     }
@@ -26,18 +33,24 @@ class Portfolio extends Component {
     animateProjectsOnScroll = animateContentOnScroll.bind(this);
 
     handleProjectSelect = () => {
-        document.body.style.overflow = 'hidden';
+        if (document.body) {
+            document.body.style.overflow = 'hidden';
+        }
         this.setState({ overlayActive: true });
     };
 
     handleOverlayClose = () => {
-        document.body.style.overflow = 'auto';
+        if (document.body) {
+            document.body.style.overflow = 'auto';
+        }
         this.setState({ overlayActive: false });
     };
 
     toggleProjectsVisibility = () => {
         this.setState({ mobileProjectsVisible: !this.state.mobileProjectsVisible });
     };
+
+    element: ?HTMLDivElement;
 
     render() {
         return (

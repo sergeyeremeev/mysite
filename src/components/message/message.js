@@ -1,9 +1,10 @@
+// @flow
 import React, { Component } from 'react';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
 import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
 import { MessageContainer, MessageInner } from './style';
 
-class Message extends Component {
+class Message extends Component<{}, { scrolledTo: boolean }> {
     state = { scrolledTo: false };
 
     componentDidMount() {
@@ -11,12 +12,14 @@ class Message extends Component {
     }
 
     componentDidUpdate() {
-        if (this.state.visible === true) {
+        if (this.state.scrolledTo === true) {
             window.removeEventListener('scroll', this.animateMessageOnScroll);
         }
     }
 
     animateMessageOnScroll = animateContentOnScroll.bind(this);
+
+    element: ?HTMLDivElement;
 
     render() {
         return (

@@ -1,10 +1,11 @@
+// @flow
 import React, { Component } from 'react';
 import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
 import htmlGlasses from '../../assets/images/html_glasses_final.svg';
 import CV from '../../assets/documents/CV.pdf';
 import { HeaderContainer, HeaderTop, HeaderBottom } from './style';
 
-class Header extends Component {
+class Header extends Component<{}, { scrolledTo: boolean }> {
     state = { scrolledTo: false };
 
     componentDidMount() {
@@ -12,8 +13,10 @@ class Header extends Component {
     }
 
     handleClick = () => {
-        window.scrollTo(0, document.body.clientHeight);
+        window.scrollTo(0, (document.body && document.body.clientHeight));
     };
+
+    element: ?HTMLHeadingElement;
 
     render() {
         return (
