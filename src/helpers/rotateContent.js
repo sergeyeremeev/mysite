@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export const RotatedContentCSS = css`
-  transform: ${props => props.scrolledTo ? 'none' : 'rotate(-90deg)'};
+  transform: ${props => (props.scrolledTo ? 'none' : 'rotate(-90deg)')};
   transition: transform 1.2s ease;
 `;
 

@@ -1,22 +1,22 @@
 import { css } from 'styled-components';
 
 export const SlidingDownContentCSS = css`
-  transform: ${props => props.scrolledTo ? 'none' : 'translateY(-200px)'};
-  opacity: ${props => props.scrolledTo ? '1' : '0'};
+  transform: ${props => (props.scrolledTo ? 'none' : 'translateY(-200px)')};
+  opacity: ${props => (props.scrolledTo ? '1' : '0')};
   transition: transform 0.8s ease, opacity 0.8s ease;
   
   @media (max-width: 679px) {
-    transform: ${props => props.scrolledTo ? 'none' : 'translateY(-100px)'};
+    transform: ${props => (props.scrolledTo ? 'none' : 'translateY(-100px)')};
   }
 `;
 
 export const SlidingUpContentCSS = css`
-  transform: ${props => props.scrolledTo ? 'none' : 'translateY(200px)'};
-  opacity: ${props => props.scrolledTo ? '1' : '0'};
+  transform: ${props => (props.scrolledTo ? 'none' : 'translateY(200px)')};
+  opacity: ${props => (props.scrolledTo ? '1' : '0')};
   transition: transform 0.8s ease, opacity 0.8s ease;
   
   @media (max-width: 679px) {
-    transform: ${props => props.scrolledTo ? 'none' : 'translateY(100px)'};
+    transform: ${props => (props.scrolledTo ? 'none' : 'translateY(100px)')};
   }
 `;
 
