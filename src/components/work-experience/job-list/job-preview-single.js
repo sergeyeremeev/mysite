@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import JobPreviewContent from './job-preview-content';
-import { JobPreviewCSS, JobPreviewImageCSS, JobPreviewCTA } from './style';
+import { JobPreviewCSS, JobPreviewImageCSS, JobPreviewCTA, JobPreviewSingleWrapper } from './style';
 
 const JobPreview = styled.div`
   ${JobPreviewCSS};
@@ -38,14 +38,18 @@ class JobPreviewSingle extends Component<Props, {hovered: boolean}> {
                 hovered={this.state.hovered}
                 active={this.props.active}
             >
-                <JobPreviewImage imgUrl={this.props.job.image} hovered={this.state.hovered} />
-                <JobPreviewContent
-                    active={this.props.active}
-                    job={this.props.job}
-                    onJobSelect={this.props.onJobSelect}
-                    isMobile={this.props.isMobile}
-                />
-                <JobPreviewCTA>Learn more</JobPreviewCTA>
+                <div>
+                    <JobPreviewImage hovered={this.state.hovered}>
+                        <span>{this.props.job.title}</span>
+                        <img src={this.props.job.image} alt=""/>
+                    </JobPreviewImage>
+                    <JobPreviewContent
+                        active={this.props.active}
+                        job={this.props.job}
+                        onJobSelect={this.props.onJobSelect}
+                        isMobile={this.props.isMobile}
+                    />
+                </div>
             </JobPreview>
         );
     }

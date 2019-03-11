@@ -9,7 +9,8 @@ import { rotateContentOnScroll } from '../../helpers/rotateContent';
 import { SkillsContainer, SkillsRotator } from './style';
 
 type Props = {
-    skills: Array<Object>
+    skills: Array<Object>,
+    active: boolean,
 };
 
 type State = {
@@ -25,17 +26,11 @@ class Skills extends Component<Props, State> {
         scrolledTo: false,
     };
 
-    componentDidMount() {
-        window.addEventListener('scroll', this.rotateSkillsOnScroll);
-    }
-
-    componentDidUpdate() {
-        if (this.state.scrolledTo === true) {
-            window.removeEventListener('scroll', this.rotateSkillsOnScroll);
+    componentWillReceiveProps(nextProps: Object): void {
+        if (nextProps.active && !this.state.scrolledTo) {
+            this.setState({ scrolledTo: true });
         }
     }
-
-    rotateSkillsOnScroll = rotateContentOnScroll.bind(this);
 
     handleSkillSelect = (index) => {
         if (this.state.activeIndex !== index) {

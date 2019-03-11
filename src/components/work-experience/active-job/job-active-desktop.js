@@ -43,7 +43,7 @@ class ActiveJobDesktop extends Component<Props> {
         }
 
         return (
-            <JobDetailsContainer>
+            <JobDetailsContainer className="fullPageScroll">
                 <Scrollbars ref={(el) => { this.scrollbars = el; }}>
                     <JobDetails selected>
                         <h2>{activeJob.title}</h2>

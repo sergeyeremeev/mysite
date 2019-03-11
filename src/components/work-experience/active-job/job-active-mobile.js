@@ -18,7 +18,8 @@ const JobDetails = styled.div`
 type Props = {
     activeJob: Object,
     overlayActive: boolean,
-    onOverlayClose: Function
+    onOverlayClose: Function,
+    overlayOffset: Object,
 };
 
 class ActiveJobMobile extends Component<Props> {
@@ -43,7 +44,7 @@ class ActiveJobMobile extends Component<Props> {
 
         if (!activeJob) {
             return (
-                <Overlay>
+                <Overlay style={this.props.overlayOffset}>
                     <OverlayContainer>
                         <JobDetails>
                             <h2>Select a job to see more details</h2>
@@ -58,6 +59,7 @@ class ActiveJobMobile extends Component<Props> {
             <Overlay
                 overlayActive={this.props.overlayActive}
                 onClick={this.handleOverlayClose}
+                style={this.props.overlayOffset}
             >
                 <OverlayContainer onClick={this.handleOverlayContentsClick}>
                     <OverlayCloseBtn onClick={this.handleOverlayClose}><img src={iconClose} alt="" /></OverlayCloseBtn>

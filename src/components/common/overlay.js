@@ -3,7 +3,6 @@ import themeColors from '../../helpers/theme-colors';
 
 export const OverlayCSS = css`
   position: fixed;
-  top: 0;
   left: 0;
   right: 0;
   bottom: 0;

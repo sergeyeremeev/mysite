@@ -4,46 +4,72 @@ import ProjectList from './project-list/project-list';
 import ProjectActive from './project-active/project-active';
 import SectionTitle from '../common/section-title';
 import { SectionWrapper, SectionContainer } from '../common/wrappers';
-import { animateContentOnScroll } from '../../helpers/slideContentOnScroll';
-import { ProjectsContainer, ProjectsViewMore } from './style';
+import { ProjectsContainer, ProjectsContainerInner, ProjectsViewMore, ProjectPreview, ProjectsHint } from './style';
+import staticGif from '../../assets/images/static.gif';
+import yourNextDeveloperVideo from '../../assets/videos/nextdeveloper.mp4';
 
 type State = {
     overlayActive: boolean,
+    overlayOffset: Object,
     mobileProjectsVisible: boolean,
     scrolledTo: boolean,
 };
 
-class Portfolio extends Component<{}, State> {
+type Props = {
+    onOverlayOpen: Function,
+    onOverlayClose: Function
+}
+
+class Portfolio extends Component<Props, State> {
     state = {
         overlayActive: false,
+        overlayOffset: { top: '0px' },
         mobileProjectsVisible: false,
         scrolledTo: false,
     };
 
-    componentDidMount() {
-        window.addEventListener('scroll', this.animateProjectsOnScroll);
-    }
+    videoTimeout: null;
 
-    componentDidUpdate() {
-        if (this.state.scrolledTo === true) {
-            window.removeEventListener('scroll', this.animateProjectsOnScroll);
+    componentWillReceiveProps(nextProps: Object): void {
+        if (nextProps.active && !this.state.scrolledTo) {
+            this.setState({ scrolledTo: true });
         }
     }
-
-    animateProjectsOnScroll = animateContentOnScroll.bind(this);
 
     handleProjectSelect = () => {
-        if (document.body) {
-            document.body.style.overflow = 'hidden';
-        }
         this.setState({ overlayActive: true });
+        this.props.onOverlayOpen();
+
+        const wrapperOffset = this.wrapper.getBoundingClientRect().top;
+        const topVal = wrapperOffset < 0 ? `${-wrapperOffset}px` : `-${wrapperOffset}px`;
+        this.setState({ overlayOffset: { top: topVal }});
+    };
+
+    handleProjectHover = (project) => {
+        const oldVideo = this.projectPreview.querySelector('video');
+
+        if (oldVideo) {
+            this.projectPreview.removeChild(oldVideo);
+        }
+
+        const video = document.createElement('video');
+        const source = document.createElement('source');
+        video.setAttribute('muted', 'muted');
+        video.setAttribute('loop', 'loop');
+        source.setAttribute('src', project.video);
+        source.setAttribute('type', 'video/mp4');
+        video.appendChild(source);
+
+        clearTimeout(this.videoTimeout);
+        this.videoTimeout = setTimeout(() => {
+            this.projectPreview.append(video);
+            video.play();
+        }, 400);
     };
 
     handleOverlayClose = () => {
-        if (document.body) {
-            document.body.style.overflow = 'auto';
-        }
         this.setState({ overlayActive: false });
+        this.props.onOverlayClose();
     };
 
     toggleProjectsVisibility = () => {
@@ -51,29 +77,45 @@ class Portfolio extends Component<{}, State> {
     };
 
     element: ?HTMLDivElement;
+    wrapper: ?HTMLDivElement;
+    projectPreview: ?HTMLDivElement;
 
     render() {
         return (
-            <SectionWrapper>
+            <SectionWrapper innerRef={el => { this.wrapper = el; }}>
                 <SectionContainer>
                     <SectionTitle>Portfolio</SectionTitle>
                     <ProjectsContainer
                         innerRef={(el) => { this.element = el; }}
                         scrolledTo={this.state.scrolledTo}
                     >
-                        <ProjectList
-                            onProjectSelect={this.handleProjectSelect}
-                            mobileProjectsVisible={this.state.mobileProjectsVisible}
-                        />
-                        <ProjectsViewMore
-                            onClick={this.toggleProjectsVisibility}
-                        >
-                            {this.state.mobileProjectsVisible ? 'Less' : 'More'}
-                        </ProjectsViewMore>
-                        <ProjectActive
-                            overlayActive={this.state.overlayActive}
-                            onOverlayClose={this.handleOverlayClose}
-                        />
+                        <ProjectsContainerInner>
+                            <ProjectList
+                              onProjectSelect={this.handleProjectSelect}
+                              onProjectFocus={this.handleProjectHover}
+                              mobileProjectsVisible={this.state.mobileProjectsVisible}
+                            />
+                            <ProjectPreview innerRef={(el) => { this.projectPreview = el; }}>
+                                <img src={staticGif} alt=""/>
+                                <video autoPlay="autoplay" loop="loop" muted="muted">
+                                    <source src={yourNextDeveloperVideo} type="video/mp4" />
+                                </video>
+                            </ProjectPreview>
+                            <ProjectsViewMore
+                              onClick={this.toggleProjectsVisibility}
+                            >
+                                {this.state.mobileProjectsVisible ? 'Less' : 'More'}
+                            </ProjectsViewMore>
+                            <ProjectActive
+                              overlayActive={this.state.overlayActive}
+                              onOverlayClose={this.handleOverlayClose}
+                              overlayOffset={this.state.overlayOffset}
+                            />
+                        </ProjectsContainerInner>
+                        <ProjectsHint>
+                            *Mouseover a project to see the preview, click to see details. On large touch devices tap a
+                            project with two fingers to see the video.
+                        </ProjectsHint>
                     </ProjectsContainer>
                 </SectionContainer>
             </SectionWrapper>

@@ -12,6 +12,15 @@ const themeColors = {
     beige: '#f5f3ee',
     brown: '#3d2217',
     white: '#fff',
+
+    blue1: '#1e232d',
+    blue2: '#515e79',
+    blue3: '#7b90b9',
+    blue4: '#2e3e5f',
+    brown1: '#2d281e',
+    brown2: '#796539',
+    gray1: '#d8d8d8',
+    gray2: '#505050',
 };
 
 export default themeColors;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectJob } from '../../../actions';
-import { JobPreviewTextCSS, JobPreviewContentTop, JobPreviewContentBottom } from './style';
+import {JobPreviewTextCSS, JobPreviewContentTop, JobPreviewContentBottom, JobPreviewCTA} from './style';
 
 const JobPreviewText = styled.div`
   ${JobPreviewTextCSS};
@@ -37,13 +37,14 @@ const JobPreviewContent = (props: Props) => {
         <JobPreviewText active={props.active} onClick={handleClick}>
             <JobPreviewContentTop>
                 <h3>{job.title}</h3>
-                @
+                <br />@<br />
                 <h2>{job.companyName}</h2>
             </JobPreviewContentTop>
             <JobPreviewContentBottom>
                 <span>Start: {job.startDate}</span>
                 <span>End: {job.endDate}</span>
             </JobPreviewContentBottom>
+            <JobPreviewCTA>Learn more</JobPreviewCTA>
         </JobPreviewText>
     );
 };

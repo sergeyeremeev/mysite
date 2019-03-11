@@ -6,25 +6,33 @@ import iconMobile from '../../assets/images/mobile-phone-portrait.svg';
 import skype from '../../assets/images/skype.svg';
 
 export const WebsiteFooter = styled.footer`
-  background: ${themeColors.darkGray};
+  height: 100%;
   padding: 40px 0;
-  margin-top: 60px;
+  background: linear-gradient(${themeColors.blue2}, ${themeColors.blue3});
+  display: flex;
+  align-items: center;
   
   @media (max-width: 767px) {
     padding: 30px 0;
-    margin-top: 30px;
+    
+    > div {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+      max-height: 500px;
+    }
   }
 `;
 
 export const FooterSection = styled.div`
-
   &:last-child {
     margin-left: auto;
   }
   
   h2 {
-    color: ${themeColors.dijon};
-    font-size: 24px;
+    color: ${themeColors.white};
+    font-size: 28px;
     font-weight: 300;
     text-transform: uppercase;
     margin: 0 0 36px;
@@ -46,11 +54,12 @@ export const FooterSection = styled.div`
     text-decoration: underline;
   }
   
-  @media (max-width: 679px) {
+  @media (max-width: 767px) {
+    text-align: center;
     
     &:last-child {
       margin-left: 0;
-      margin-top: 40px;
+      margin-top: 30px;
     }
   }
 `;
@@ -72,6 +81,12 @@ export const ContactOptions = styled.div`
     text-decoration: underline;
     display: flex;
     align-items: center;
+  }
+  
+  @media (max-width: 767px) {
+    div {
+      justify-content: center;
+    }
   }
 `;
 

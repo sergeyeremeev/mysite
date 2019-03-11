@@ -8,7 +8,7 @@ export const MessageContainer = styled.div`
   max-width: 920px;
   box-shadow: rgba(0,0,0,0.15) 5px 5px 10px 0;
   margin: 0 auto;
-  border: 1px solid ${themeColors.green};
+  border: 1px solid ${themeColors.brown2};
   padding: 10px;
   ${SlidingUpContentCSS};
   
@@ -22,19 +22,19 @@ export const MessageContainer = styled.div`
 `;
 
 export const MessageInner = styled.div`
-  border: 1px solid ${themeColors.green};
+  border: 1px solid ${themeColors.brown2};
   padding: 40px;
   
   h2 {
     margin-top: 0;
     font-size: 32px;
-    color: ${themeColors.darkBlue};
+    color: ${themeColors.blue2};
   }
   
   p {
     font-size: 15px;
     line-height: 1.4;
-    color: ${themeColors.gray};
+    color: ${themeColors.gray2};
   }
   
   @media (max-width: 679px) {

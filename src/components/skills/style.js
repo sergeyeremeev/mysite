@@ -6,7 +6,7 @@ export const SkillsContainer = styled.div`
   position: relative;
   height: 660px;
   
-  @media (max-width: 679px) {
+  @media (max-width: 679px), (max-height: 700px) {
     height: auto;
   }
 `;
@@ -17,7 +17,7 @@ export const SkillsRotator = styled.div`
   left: 50%;
   ${RotatedContentCSS};
   
-  @media (max-width: 679px) {
+  @media (max-width: 679px), (max-height: 700px) {
     position: static;
     ${SlidingUpContentCSS};
   }

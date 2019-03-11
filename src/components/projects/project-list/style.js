@@ -1,83 +1,68 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import themeColors from '../../../helpers/theme-colors';
 
-const ProjectTileCSS = css`
+export const ProjectTileCSS = css`
   position: relative;
   display: block;
-  width: calc((100% - 60px) / 4);
-  margin: 0 20px 20px 0;
-  padding: 15px;
-  float: left;
+  border-radius: 7px;
+  margin: -1px 0 0 -1px;
   text-align: center;
+  overflow: hidden;
   background: ${themeColors.white};
-  border-radius: 4px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  transition: 0.3s box-shadow ease;
   cursor: pointer;
   
-  &:before {
-    content: '';
-    padding-top: 66.666666%;
-    display: table;
-    width: 1px;
-    margin-left: -1px;
+  > div {
+    position: relative;
+    height: 108px;
+    transition: border-color 0.15s linear;
+    border: 1px solid ${themeColors.gray1};
   }
   
   img {
-    max-width: 50%;
-    max-height: 40%;
+    max-width: 40%;
+    max-height: 30%;
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 35%;
   }
   
+  video {
+    display: none;
+  }
+  
   h3 {
     position: absolute;
     width: calc(100% - 30px);
-    top: 63%;
+    top: 47%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 16px;
-    color: ${themeColors.gray};
-    line-height: 1.4;
-  }
-  
-  &:nth-child(4n) {
-    margin-right: 0;
+    font-size: 14px;
+    color: ${themeColors.gray2};
+    line-height: 1.3;
   }
   
   &:hover {
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
-  }
-  
-  @media (max-width: 959px) {
-    width: calc((100% - 40px) / 3);
-    
-    &:nth-child(4n) {
-      margin-right: 20px;
-    }
-    
-    &:nth-child(3n) {
-      margin-right: 0;
+    > div {
+      border-color: ${themeColors.blue3} !important;
+      z-index: 1;
     }
   }
   
-  @media (max-width: 679px) {
-    width: calc((100% - 20px) / 2);
-    
-    &:nth-child(3n) {
-      margin-right: 20px;
-    }
-    
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
+  @media (max-width: 1279px) {
+    width: calc(100% / 4);
+  }
+  
+  @media (max-width: 767px) {
+    width: calc(100% / 2);
   }
   
   @media (max-width: 479px) {
     width: 100%;
-    margin-right: 0 !important;
+    
+    > div {
+      height: 150px;
+    }
     
     h3 {
       font-size: 20px;
@@ -88,5 +73,3 @@ const ProjectTileCSS = css`
     }
   }
 `;
-
-export default ProjectTileCSS;

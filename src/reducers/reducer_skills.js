@@ -1,85 +1,89 @@
 export default () => [
     {
         name: 'HTML',
-        details: 'HTML is the markup which no page can live without. This is the code I have been writing for the ' +
-        'past 7 years, and I can confidently call myself an expert in this area. Correct tags and attributes usage ' +
-        'for the best SEO including Schema markup, correct meta tags to ensure the website looks and functions ' +
-        'perfectly on all devices, most modern HTML features for best semantics and rich features - I have got it ' +
-        'all covered!',
+        details: `This is where every website starts. With over 9 years of experience in writing HTML code I can
+        confidently call myself an expert in this area. Valid tags and attributes, Schema markup, correct meta tags
+        and most up-to-date features - all of this provides the best SEO, performance and functionality across all
+        browsers and all devices.`,
     },
     {
         name: 'CSS',
-        details: 'The first impression is the most important one. No matter how awesome functionally website is, if ' +
-        'it looks bad people would not like using it. This is why I always stay up to date with the most current CSS ' +
-        'features and constantly read up on creative CSS recipes. Awesome animations, cool transitions, 3D effects ' +
-        'can all help with making users stay longer on the page and I will do my best to help you achieve high ' +
-        'conversion. Strong working knowledge: SASS, SCSS, Styled-components, Foundation, various UI frameworks.',
+        details: `Whether it's a static website or a complex web application, everyone wants their product to look
+        absolutely amazing. It is especially important to stay up-to-date with the most recent CSS features and trends
+        as it might come handy not just when you create something beautiful but also when you are striving for the best
+        performance. Animations, transitions, 3D effects can all give the website a modern look but it's also important
+        to remember the performance implications. Be sure to expect absolutely the highest quality styles, whether it is 
+        Sass, Scss, Styled-components, PostCSS or even plain CSS3`,
     },
     {
         name: 'JS',
-        details: 'The core of modern web development. It is crucial to understand the importance of knowing all the ' +
-        'ins and outs of vanilla JS and newly proposed features (ES6 onwards) before moving on to the frameworks and ' +
-        'calling yourself a Frontend developer. Not only did I invest a lot of time into learning the core ' +
-        'JavaScript, but I also frequently revisit learnt material to keep it fresh in my head. Strong working ' +
-        'knowledge: Vanilla JS, ES6 - onwards, React/Redux, jQuery, Underscore, BackboneJS, KnockoutJS. Good ' +
-        'familiarity: Vue, Angular, EmberJS.',
+        details: `Constantly evolving language means that you have to keep up with the latest features and trends, 
+        otherwise you are not being efficient. It is especially important to understand the core JavaScript if you want 
+        to call yourself a true Frontend developer. I know all the ins and outs of the language, have a fluent command 
+        of both Vanilla and ES6+ JavaScript, and have an expert knowledge of React, Vue, Backbone, Knockout, jQuery, 
+        Underscore and many other frameworks and libraries. To top it all off, I love solving coding challenges from
+        various competitions using plain JavaScript and have written multiple tutorials on my personal blog.`,
     },
     {
-        name: 'Build tools / task runners',
-        details: 'It is important to do everything efficiently. Task runners allow for a much faster development and ' +
-        'can be an irreplaceable tool when it comes to compiling, minifying and optimizing your code. Modern ' +
-        'Frontend development without build tools is like a restaurant without a stove. Every Frontend developer ' +
-        'should be able to effortlessly write a configuration for at least one of the common build tools. Strong ' +
-        'working knowledge: Webpack, Gulp, Grunt.',
-    },
-    {
-        name: 'Version Control',
-        details: 'Version control is another feature that absolutely every single developer MUST know how to use. ' +
-        'Not only does it allow multiple people to work on the same project simultaneously, it also makes the ' +
-        'development process easier and more structured via commit messages and also safeguards against accidental ' +
-        'code losses. Strong working knowledge: git command line, SourceTree, GitKraken.',
-    },
-    {
-        name: 'WordPress',
-        details: 'Although there is a large camp of developers who do not like WordPress, it would be wrong to say ' +
-        'that it does not serve its purpose. It would be hard to find a better tool which would allow to make a ' +
-        'simple blog as fast as WordPress does. It has a relatively good inbuilt SEO and a fantastic choice of ' +
-        'plugins. These and many other factors contributed to the fact that in the past 6 years I have worked on ' +
-        'over 30 WordPress projects, most of which required me to code a WordPress theme from scratch.',
+        name: 'Performance Optimization',
+        details: `In the past few years there has been a rising trend for websites and apps that can load almost
+        immediately and perform perfectly at 60 FPS. To achieve that a developer must know how to efficiently load
+        resources, when to display assets, how to inline critical CSS and defer loading of non-critical assets.
+        Furthermore it is essential to write efficient JavaScript which will not cause stuttering of the page. I have
+        achieved 99-100 Google PageSpeed score in the past and I know exactly how to make anything run fast.`
     },
     {
         name: 'Backend languages',
-        details: 'Due to my vast experience with WordPress I have spent a lot of time writing PHP code. Although, ' +
-        'by no means am I an experienced PHP developer, I still managed to get a fair understanding of the language. ' +
-        'In the pursuit of broadening my knowledge I have been looking into other languages as well. Ruby and Python ' +
-        'in particular caught my attention. Although I did not get much chance to apply them in my previous jobs, ' +
-        'Python has become my go-to language when I am practicing algorithmic challenges.',
+        details: `For the past 6 years all of my work was to some degree connected to PHP which resulted in me
+        transitioning into a Full-stack developer. In the past two years I have finished over 10 individual projects
+        which required extensive backend work. Apart from PHP, I have shown a lot of interest in Python and have been 
+        using it in my personal projects and some coding challenges. Looking into other languages and other programming
+        paradigms helps to broaden my coding mentality.`,
+    },
+    {
+        name: 'WordPress',
+        details: `Wordpress has played a special part in almost every developer's career. For me it has been both, a
+        tool to quickly bootstrap a project and a powerful framework for creating truly complex web applications and 
+        e-commerce solutions. Over 40 projects with custom themes launched, more than 20 of them are heavily customized 
+        from backend with custom written frameworks/plugins for a highly customizable solution which can be easily 
+        edited by any user with very little WordPress experience. Whether it's a small plugin or a large-scale trading
+        platform - name the task and it will be done.`,
+    },
+    {
+        name: 'Build tools / task runners',
+        details: `It is important to do everything efficiently. Task runners allow for a much faster development and
+        can be an irreplaceable tool when it comes to compiling, minifying and optimizing your code. Modern
+        Frontend development without build tools is like a restaurant without a stove. Every Frontend developer
+        should be able to effortlessly write a configuration for at least one of the common build tools. It can be a
+        simple Parcel/Rollup setup or a comples Webpack/Grunt/Gulp configuration - a modern developer must know it all.`,
+    },
+    {
+        name: 'Version Control',
+        details: `Version control is another thing that absolutely every single developer MUST know how to use. Not only 
+        does it allow multiple people to work on the same project simultaneously, it also makes the development process 
+        easier and more structured via commit messages and also safeguards against accidental code losses. Applications
+        like SourceTree or GitKraken can simplify developer's live but there is no excuse to not know all the important
+        git commands and be able to efficiently use git within the terminal.`,
     },
     {
         name: 'Mobile development',
-        details: 'For a long time I was curious about developing mobile applications. This is why I have gone ' +
-        'through a Java and Android Mobile Development courses. Despite the fact that my experience with it is ' +
-        'very limited, I would love to spend more time on mobile development with Java, React Native and other ' +
-        'languages in the future.',
+        details: `In the past 3 years my interest in Java and Swift has grown significantly as I have been implementing
+        few of my ideas into mobile apps for both Android and iOS. Being open to new challenges and being ready to
+        switch area of focus is vital for being a great developer with wide range of skills, which results in a much
+        better problem solving and creative thinking.`,
     },
     {
         name: 'SCRUM / AGILE',
-        details: 'Efficiency is key. This time it is not so much about writing the code, but about setting clear ' +
-        'goals and creating a clear path to achieving them. At goTRG we have employed Scrum a long time ago and have ' +
-        'been following its ideas. Daily standup meetings, KanbanFlow, Jira project tracking system - all these ' +
-        'things truly help with organizing the work process, keeping everyone on the same page and making sure the ' +
-        'deadlines are met, because people learn how to give accurate estimates for their work.',
+        details: `Being efficient is important in any field. When it comes to programming, many solutions have been
+        developed to easily create tasks, track the progress, easily deploy code and keep all team members up-to-date
+        with the overall progress. Employing Scrum is especially important in more complex team project as it can give
+        a much clearer project overview for the manager/lead and make the deployment process much faster and simpler.
+        Daily meetings, Kanban flow, Jira tracking, CI/CD - all of these contribute to an agile and efficient team.`,
     },
     {
         name: 'Foreign Languages',
-        details: 'Although English is not my native language, I am 100% comfortable communicating in it, thanks to ' +
-        'the fact that I lived in the UK for 8 years during my school / university years. I am also keen on learning ' +
-        'new languages and if a job requires me to learn a new one, I consider it a big plus and a great opportunity ' +
-        'to add a new awesome skill to my list.',
-    },
-    {
-        name: 'Honorable mentions',
-        details: 'Other useful things that I am comfortable working with: website performance optimization, email ' +
-        'templates (HTML, mjml, etc), PSD to HTML conversion, Linux terminal.',
+        details: `Although I am a Russian speaker, English is my second native language. I have been using it on a daily
+        basis for over 12 years now, 8 of which were in the UK during my school/University years. Lately I have been 
+        improving my German and planning to add Spanish to the list of my languages in the future.`,
     },
 ];

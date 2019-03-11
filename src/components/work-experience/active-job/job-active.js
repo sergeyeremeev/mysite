@@ -9,12 +9,13 @@ type Props = {
     animateResetter: boolean,
     shouldDisplayMobile: boolean,
     overlayActive: boolean,
+    overlayOffset: Object,
     onOverlayClose: Function,
 };
 
 const ActiveJob = (props: Props) => {
     const {
-        activeJob, animateResetter, shouldDisplayMobile, overlayActive, onOverlayClose,
+        activeJob, animateResetter, shouldDisplayMobile, overlayActive, onOverlayClose, overlayOffset
     } = props;
 
     if (shouldDisplayMobile) {
@@ -23,6 +24,7 @@ const ActiveJob = (props: Props) => {
                 activeJob={activeJob}
                 overlayActive={overlayActive}
                 onOverlayClose={onOverlayClose}
+                overlayOffset={overlayOffset}
             />
         );
     }

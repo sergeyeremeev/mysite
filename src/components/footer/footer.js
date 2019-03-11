@@ -5,7 +5,7 @@ import { WebsiteFooter, FooterSection, ContactOptions, EmailIcon, LinkedInIcon, 
 function Footer() {
     return (
         <WebsiteFooter>
-            <SectionContainer containerMaxWidth="960px" containerDisplay="flex">
+            <SectionContainer containerMaxWidth="960px" containerDisplay="flex" flexDirection="row" height="auto">
                 <FooterSection>
                     <h2>Let&#39;s get in touch!</h2>
                     <ContactOptions>
@@ -14,7 +14,7 @@ function Footer() {
                                 <EmailIcon />&nbsp;<span>13.eremeev.sv@gmail.com</span>
                             </a>
                         </div>
-                        <div><MobileIcon />&nbsp;<span>+7 904 859 87 42</span></div>
+                        <div><MobileIcon />&nbsp;<span>+7 900 581 75 32</span></div>
                         <div><SkypeIcon />&nbsp;<span>serge_eremeev</span></div>
                         <div>
                             <a href="https://www.linkedin.com/in/sergey-eremeev-831a44a6/">

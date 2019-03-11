@@ -45,7 +45,7 @@ export const JobDetailsCSS = css`
   h2 {
     text-align: center;
     margin-top: 0;
-    color: ${themeColors.darkBlue};
+    color: ${themeColors.brown1};
   }
   
   img {
@@ -63,7 +63,7 @@ export const JobDetailsCSS = css`
   
   h4 {
     margin-bottom: 0;
-    color: ${themeColors.green};
+    color: ${themeColors.brown2};
   }
   
   @media (max-width: 959px) {
@@ -77,9 +77,9 @@ export const JobResetterCSS = css`
   bottom: 0;
   height: 100%;
   width: calc(100% - 40px);
-  border-top: 2px solid ${themeColors.darkBlue};
+  border-top: 2px solid ${themeColors.blue2};
   transform: ${props => (props.animating ? 'translateY(0)' : 'translateY(calc(100% - 2px))')};
-  background: ${themeColors.beige};
+  background: ${themeColors.white};
   transition: 0.5s transform ease-in;
   
   @media (max-width: 959px) {

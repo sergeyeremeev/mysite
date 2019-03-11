@@ -20,12 +20,18 @@ export const SlidingUpContentCSS = css`
   }
 `;
 
-export function animateContentOnScroll() {
-    const scrolledFromTop = (window.pageYOffset !== undefined) ? window.pageYOffset :
-        (document.documentElement || document.body.parentNode || document.body).scrollTop;
-    const windowHeight = window.innerHeight;
+// export function animateContentOnScroll() {
+//     const scrolledFromTop = (window.pageYOffset !== undefined) ? window.pageYOffset :
+//         (document.documentElement || document.body.parentNode || document.body).scrollTop;
+//     const windowHeight = window.innerHeight;
+//
+//     if (this.element.offsetTop + 150 < scrolledFromTop + windowHeight) {
+//         this.setState({ scrolledTo: true });
+//     }
+// }
 
-    if (this.element.offsetTop + 150 < scrolledFromTop + windowHeight) {
+export function animateContentOnScroll(el) {
+    if (el.classList.contains('active') !== -1) {
         this.setState({ scrolledTo: true });
     }
 }
